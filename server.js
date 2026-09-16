@@ -130,6 +130,12 @@ server.get('/registracija.html' , (zahtev, odg) => {
 server.get('/gotovo.html' , (zahtev, odg) => {
     odg.sendFile(path.join(__dirname, "gotovo.html"));
 })
+server.get('/zvono.png' , (zahtev, odg) => {
+    odg.sendFile(path.join(__dirname, "zvono.png"));
+})
+server.get('/licno.png' , (zahtev, odg) => {
+    odg.sendFile(path.join(__dirname, "licno.png"));
+})
 
 //NARUCIVANJE SA FRONT-END-a
 
