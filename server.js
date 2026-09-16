@@ -127,6 +127,9 @@ server.get('/korpa.html' , (zahtev, odg) => {
 server.get('/registracija.html' , (zahtev, odg) => {
     odg.sendFile(path.join(__dirname, "registracija.html"));
 })
+server.get('/gotovo.html' , (zahtev, odg) => {
+    odg.sendFile(path.join(__dirname, "gotovo.html"));
+})
 
 //NARUCIVANJE SA FRONT-END-a
 
