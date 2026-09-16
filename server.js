@@ -53,62 +53,62 @@ server.use(express.json());
 
 //USLUZIVANJE SLIKA POSEBNO JER NECE PO FOLDERU:
 
-server.get('/Slike/korpa.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "korpa.png")));
+server.get('/korpa.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "korpa.png")));
 
-//
+//RADIII!!
 server.get('/HERO.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "HERO.png")));
 
-server.get('/Slike/o_res_1.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "o_res_1.png")));
+server.get('/o_res_1.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "o_res_1.png")));
 
-server.get('/Slike/zvezdica.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "zvezdica.png")));
+server.get('/zvezdica.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "zvezdica.png")));
 
-server.get('/Slike/Cezar.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Cezar.png")));
-
-server.get('/Slike/Grcka.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Grcka.png")));
-
-server.get('/Slike/Tuna.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Tuna.png")));
-
-server.get('/Slike/Sopska.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Sopska.png")));
+server.get('/Cezar.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Cezar.png")));
 
 server.get('/Slike/Grcka.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Grcka.png")));
 
-server.get('/Slike/Piletina.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Piletina.png")));
+server.get('/Tuna.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Tuna.png")));
 
-server.get('/Slike/Losos.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Losos.png")));
+server.get('/Sopska.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Sopska.png")));
 
-server.get('/Slike/Testenina.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Testenina.png")));
+server.get('/Grcka.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Grcka.png")));
 
-server.get('/Slike/Rizoto.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Rizoto.png")));
+server.get('/Piletina.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Piletina.png")));
 
-server.get('/Slike/Omlet.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Omlet.png")));
+server.get('/Losos.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Losos.png")));
 
-server.get('/Slike/Ovsene.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Ovsene.png")));
+server.get('/Testenina.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Testenina.png")));
 
-server.get('/Slike/Tost.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Tost.png")));
+server.get('/Rizoto.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Rizoto.png")));
 
-server.get('/Slike/Palacinke.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Palacinke.png")));
+server.get('/Omlet.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Omlet.png")));
 
-server.get('/Slike/Med i orasi.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Med i orasi.png")));
+server.get('/Ovsene.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Ovsene.png")));
 
-server.get('/Slike/Chia puding.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Chia puding.png")));
+server.get('/Tost.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Tost.png")));
 
-server.get('/Slike/Mafin.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Mafin.png")));
+server.get('/Palacinke.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Palacinke.png")));
 
-server.get('/Slike/Energetske kuglice.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Energetske kuglice.png")));
+server.get('/Med i orasi.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Med i orasi.png")));
 
-server.get('/Slike/banana.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "banana.png")));
+server.get('/Chia puding.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Chia puding.png")));
 
-server.get('/Slike/jagoda.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "jagoda.png")));
+server.get('/Mafin.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Mafin.png")));
 
-server.get('/Slike/zeleni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "zeleni.png")));
+server.get('/Energetske kuglice.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Energetske kuglice.png")));
 
-server.get('/Slike/limunada.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "limunada.png")));
+server.get('/banana.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "banana.png")));
 
-server.get('/Slike/kraj.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "kraj.png")));
+server.get('/jagoda.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "jagoda.png")));
 
-server.get('/Slike/stani.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "stani.png")));
+server.get('/zeleni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "zeleni.png")));
 
-server.get('/Slike/kreni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "kreni.png")));
+server.get('/limunada.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "limunada.png")));
+
+server.get('/kraj.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "kraj.png")));
+
+server.get('/stani.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "stani.png")));
+
+server.get('/kreni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "kreni.png")));
 
 //DEFINISANJE OSTALIH RUTI:
 
