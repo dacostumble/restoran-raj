@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vaša korpa</title>
+        <link rel="stylesheet" href="stil.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="KORPA">
+            <div id="PRVI_DEO">
+                <h1 id="ime_sekcije">Vaša korpa</h1>
+                <p id="opis_sekcije">
+                    Plaćanje vršiti <b>isključivo pouzećem.</b>
+                </p>
+
+                <div class="detalji_div">
+                    <p id="detalji" style="background-color:rgb(245, 188, 83); padding: 0.5rem; font-size: 0.8rem;">Radno vreme: 07h-23h</p>
+
+                    <p id="detalji" style="background-color:rgb(245, 188, 83); padding: 0.5rem; font-size: 0.8rem;">
+                        Call centar: +3811234567
+                    </p>
+                </div>
+
+                <br>
+
+                <h3 id="ime_pod_sekcije">Sadržaj korpe</h3>
+                
+                <div id="KORPA_SADRZAJ">
+                    
+                </div>
+            </div>
+
+            <div id="DRUGI_DEO">
+                <h3 id="ime_pod_sekcije">Način preuzimanja</h3>
+                <p id="opis_sekcije">
+                    Neadekvatno popunjena porudžbina ili porudžbina sa nepostojećim brojem telefona će biti obrisana i korisnik
+                    neće biti uslužen.
+                </p>
+
+                <h3 style="color: green;" id="cena_preuzimanja">0.00 RSD</h3>
+
+                <div id="odabir">
+                    <button id="dlicno">Lično</button>
+                    <button id="ddostava">Dostava</button>
+                </div><br>
+
+                <p id="opis_sekcije">
+                    Molimo Vas da prilikom naručivanja više puta koristite jedan
+                    <b>isti broj</b> telefona koji će služiti za slanje obaveštenja.
+                    Nakon naručivanja očekujte poziv na koji se ne morate javiti (verifikacija broja).
+                </p>
+
+                <div id="dostava">
+                    <form>
+                        <input type="text" placeholder="Ime i prezime" minlength="0" required id="unos_ime">
+                        <input type="tel" placeholder="Kontakt telefon" minlength="8" maxlength="15" id="unos_tel">
+                        <input type="text" placeholder="Adresa (naselje + broj zgrade/kuće +  ime ulice)" minlength="0" required style="display: none;" id="unos_adresa">
+                        <input type="text" placeholder="Okrug" list="okrug" required style="display: none;" id="unos_okrug">
+                    </form>
+                    
+                    <datalist id="okrug">
+                        <option value="Kosovska Mitrovica">200 RSD</option>
+                        <option value="Zvečan">300 RSD</option>
+                        <option value="Grabovac">400 RSD</option>
+                        <option value="Žitkovac / Žerovnica">450 RSD</option>
+                    </datalist>
+                </div>
+
+                <br>
+
+                <button id="potvrda_dostava" style="display: none;">Potvrdi adresu</button>
+
+                <br><br>
+
+                <input type="text" id="poruka" minlength="0" maxlength="50" placeholder="Poruka za kuhinju (vezano za porudžbinu)">
+
+                <br>
+
+                <h3 id="ime_pod_sekcije">Plaćanje</h3>
+
+                <div id="placanje_info">
+                    <p id="racun_korpa">0.00 RSD</p>
+                </div>
+
+                <br>
+
+                <button id="plati">Završi kupovinu</button>
+            </div>
+        </div>
+
+        <script>
+            //localStorage.setItem("kontakt_iz_korpe" , Number(0));
+        
+            window.addEventListener("load" , ()=>{    
+            //ispis korpe:
+            /**************************************************************/ 
+
+            let korpa=document.getElementById("KORPA_SADRZAJ");
+            let n=localStorage.getItem("broj");
+            let parsiran_niz=JSON.parse(localStorage.getItem("niz"));
+
+            let racun_korpa=document.getElementById("racun_korpa");
+            let s=Number(0);
+
+            for(let j=0; j<n; j++){
+                if(parsiran_niz[j].kolicina != undefined){
+                    let artikl=document.createElement("div");
+                    artikl.className="proizvod";
+
+                    artikl.textContent=`${parsiran_niz[j].kolicina}x ${parsiran_niz[j].naziv} ${parsiran_niz[j].cena}`;
+
+                    s+=Number(parseFloat((parsiran_niz[j].cena)));
+                    racun_korpa.textContent=`${s} RSD`;
+
+                    korpa.appendChild(artikl);
+
+                    artikl.addEventListener("click" , ()=>{
+                        artikl.style.display="none";
+                        parsiran_niz[j]=null;
+                        console.log(parsiran_niz);
+                        
+                        let brojac=localStorage.getItem("broj");
+                        brojac--;
+                        if(brojac<=0) brojac=0;
+                        localStorage.setItem("broj" , Number(brojac));
+                        status_korpe.textContent=`Korpa (${localStorage.getItem("broj")})`;
+
+                        localStorage.setItem("niz" , JSON.stringify(parsiran_niz));
+                    })
+                }
+                
+                //console.log(`Parsiran: ${parsiran_niz[j]}`);
+            }
+
+            //popunjavanje forme za preuzimanje:
+            /**************************************************************/
+
+            let cena_preuzimanja=document.getElementById("cena_preuzimanja");
+            let licno=document.getElementById("dlicno");
+            let dostava=document.getElementById("ddostava");
+
+            let unos_ime=document.getElementById("unos_ime");
+            let unos_telefon=document.getElementById("unos_tel");
+            let adresa=document.getElementById("unos_adresa");
+            let okrug=document.getElementById("unos_okrug");
+
+            let potvrdi_adresu=document.getElementById("potvrda_dostava");
+            let poruka=document.getElementById("poruka");
+
+            //potvrda adrese:
+
+            let vrednost=0;
+
+            licno.addEventListener("click" , ()=>{
+                licno.style.border="2px solid green";
+                dostava.style.border="none";
+                adresa.style.display="none";
+                okrug.style.display="none";
+                potvrdi_adresu.style.display="none";
+
+                vrednost=1;
+            })
+
+            dostava.addEventListener("click" , ()=>{
+                dostava.style.border="2px solid green";
+                licno.style.border="none";
+
+                unos_ime.style.display="flex";
+                unos_telefon.style.display="flex";
+                adresa.style.display="flex";
+                okrug.style.display="flex";     
+                potvrdi_adresu.style.display="flex";
+
+                vrednost=2;
+            })  
+
+            potvrdi_adresu.addEventListener("click" , event=>{
+                if(okrug.value == "Kosovska Mitrovica"){
+                    cena_preuzimanja.textContent="200 RSD";
+                    s+=Number(200);
+                    racun_korpa.textContent=`${s} RSD`;
+                }
+
+                else if(okrug.value == "Zvečan"){
+                    cena_preuzimanja.textContent="300 RSD";
+                    s+=Number(300);
+                    racun_korpa.textContent=`${s} RSD`;
+                }
+
+                else if(okrug.value == "Grabovac"){
+                    cena_preuzimanja.textContent="400 RSD";
+                    s+=Number(400);
+                    racun_korpa.textContent=`${s} RSD`;
+                }
+
+                else if(okrug.value == "Žitkovac / Žerovnica"){
+                    cena_preuzimanja.textContent="450 RSD";
+                    s+=Number(450);
+                    racun_korpa.textContent=`${s} RSD`;
+                }
+
+                vrednost=3;
+                event.target.style.display="none";
+            })
+
+            //narucivanje konacno:
+            /**************************************************************/
+
+            async function posalji() {
+                let odg=await fetch("/poruci" , {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "ime": unos_ime.value,
+                        "kontakt": Number(unos_telefon.value),
+                        "adresa": adresa.value,
+                        "poruka": poruka.value,
+                        "korpa": JSON.parse(localStorage.getItem("niz")),
+                        "racun": Number(parseInt(racun_korpa.textContent)),
+                        "gotovo": false
+                    })
+                })
+            }
+
+            let plati=document.getElementById("plati");
+            plati.addEventListener("click" , ()=>{
+                if(vrednost==1 || vrednost==3){
+                    posalji();
+
+                    localStorage.setItem("niz" , 0);
+                    localStorage.setItem("broj" , Number(0));
+                    korpa.innerHTML=` `;
+                    racun_korpa.textContent="0.00$";
+
+                    //auto preusmeravanje:
+                    window.location.href="index.html";
+                    window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
+
+                    localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
+                }
+
+                else if (vrednost==2) window.alert('Molimo Vas potvrdite Vašu adresu.');
+                else window.alert('Molimo Vas odaberite način preuzimanja.');
+            })
+        })
+
+        //Provera stanja smene -> dugme plati:
+
+        setInterval(async ()=>{
+            await fetch("/info_smena")
+            .then(odg=>odg.json())
+            .then(podatak=>{
+                console.log(podatak);
+                if(podatak==0) plati.style.display="none";
+
+                else if(podatak==1) plati.style.display="flex";
+            });
+        }, 1000);
+        </script>
+    </body>
+</html>

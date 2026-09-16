@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin panel</title>
+        <link rel="stylesheet" href="stil.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1 id="ime_sekcije">Admin panel</h1>
+        <h4 id="zarada">Dnevna zarada: 0.00 RSD</h4>
+        <p id="opis_sekcije">
+            <b>Klikom na dugme "Kraj smene", smena se završava i dnevni iznos se 
+                vraća na 0.00 RSD</b><br>
+        </p>
+
+        <br>
+
+        <div id="dugmad">
+            <button id="zaustavi"><img src="Slike/stani.png" alt="Loading..."><p>Kraj smene</p></button>
+            <button id="pokreni"><img src="Slike/kreni.png" alt="Loading..."><p>Ponovo pokreni</p></button>
+            
+            <input type="number" placeholder="Šifra porudžbine" min="0" id="sifra">
+            <button id="gotova_porudzbina_dugme">Gotovo</button>
+            <button id="obrisi_po_broju">Obriši</button>
+        </div>
+
+        <br><br>
+        <hr>
+        <br>
+
+        <h1 id="ime_sekcije">Porudžbine</h1>
+
+        <br>
+
+        <div id="PORUDZBINE">
+            
+        </div>
+
+        <script>                 
+            let admin_lista=document.getElementById("PORUDZBINE");
+            let dnevna_zarada_stanje=document.getElementById("zarada");
+            let zarada=document.getElementById("zarada");
+            let s=Number(0);
+
+            let unos_sifre_proizvoda=document.getElementById("sifra");
+            let gotova_porudzbina_dugme=document.getElementById("gotova_porudzbina_dugme");
+
+            //Ažuriranje porudžbina na svakih 5 sekundi
+            //oni sa stanjem true, ce biti na opcaity: 40%
+
+            setInterval(()=>{
+                try{
+                    fetch("/lista")
+                    .then(odg=>odg.json())
+                    .then(podatak=>{
+                        //JSON.stringify(podatak);
+                        console.log(podatak); 
+
+                        let n=podatak.length;
+                        if(n==0){
+                            let prazna_lista_p=document.createElement("p");
+                            prazna_lista_p.textContent="Još nema porudžbina!";
+                            admin_lista.append(prazna_lista_p);
+                        }
+
+                        for(let j=0; j<n; j++){
+                            let p=document.createElement("p");
+                            p.style="max-width: 70vw; font-size: 1.2rem;"
+                            
+                            admin_lista.append(p);
+
+                            let korpa=JSON.stringify(podatak[j].korpa);
+                            console.log(korpa);
+
+                            p.textContent=`
+                                Ime: ${podatak[j].ime}, Adresa: ${podatak[j].adresa}, Kontakt: ${podatak[j].kontakt}, poruka: ${podatak[j].poruka}, KORPA: ${korpa}, UKUPNO: ${podatak[j].racun}
+                            `;
+
+                            //provera stanja:
+                            if(podatak[j].gotovo_stanje == true){
+                                p.style="opacity: 30%";
+                            }
+
+                            s=s+Number(podatak[j].racun);
+                            zarada.textContent=`Dnevna zarada: ${s} RSD`;
+                        }
+                    })
+                }
+
+                catch(error){
+                    throw error;
+                }
+
+                admin_lista.innerHTML=` `;
+                s=0.0;
+                zarada.textContent=`Dnevna zarada: ${s} RSD`;
+            }, 5000);
+
+            //Gotova porudžbina:
+            gotova_porudzbina_dugme.addEventListener("click", async ()=> {
+                try{
+                    await fetch("/gotovaPorudzbina" , {
+                            method: "PUT",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body:JSON.stringify({
+                                "sifra": unos_sifre_proizvoda.value
+                            })
+                        }
+                    )
+                }
+
+                catch(error){
+                    throw error;
+                }
+            })
+
+            //Brisanje porudzbina(e) po broju:
+
+            let obrisi_po_broju=document.getElementById("obrisi_po_broju");
+
+            obrisi_po_broju.addEventListener("click" , async ()=>{
+                try{
+                    await fetch("/obrisi" , {
+                        method: "POST",
+                        headers:{
+                            "Content-Type": "application/json"
+                        },
+                        body:JSON.stringify({
+                            "kontakt_za_brisanje": unos_sifre_proizvoda.value
+                        })
+                    })
+                }
+                
+                catch(error){
+                    throw error;
+                }
+            })
+
+            //Smena:
+            let dugme_kraj, dugme_pokreni;
+
+            dugme_kraj=document.getElementById("zaustavi");
+            dugme_pokreni=document.getElementById("pokreni");
+
+            dugme_kraj.addEventListener("click" , async ()=>{
+                dugme_kraj.style.display="none";
+                dugme_pokreni.style.display="flex";    
+
+                let odg=await fetch("/kraj_smene" , {
+                    method: "POST"
+                })
+
+                let poruka=await odg.json();
+
+                if(poruka==1) window.alert("Smena uspešno završena!");
+            })
+
+            dugme_pokreni.addEventListener("click" , async ()=>{
+                dugme_pokreni.style.display="none";
+                dugme_kraj.style.display="flex";
+
+                let odg=await fetch("/pocetak_smene" , {
+                    method: "POST"
+                })
+
+                let poruka=await odg.json();
+
+                if(poruka==1) window.alert("Smena uspešno započeta!");
+            })
+        </script>
+    </body>
+</html>

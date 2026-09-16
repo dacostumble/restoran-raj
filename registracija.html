@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registracija</title>
+        <link rel="stylesheet" href="stil.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="REGISTRACIJA">
+            <h2>ADMIN PANEL</h2>
+            
+            <input type="text" minlength="0" placeholder="Unesite svoje ime" required id="ime">
+            <input type="email" minlength="0" placeholder="Unesite svoju email adresu" required id="email">
+            <input type="password" minlength="0" placeholder="Šifra" required id="sifra">
+
+            <button id="registruj"><img src="Slike/kraj.png" alt="Loading...">Završi</button>
+        </div>
+
+        <style>
+            body{
+                background-image: url("Slike/HERO.png");
+                background-attachment: scroll;
+                background-size: cover;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                height: 100vh;
+
+                font-family: "Sansation", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            #REGISTRACIJA{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                gap: 1rem;
+                background-color: rgba(255, 255, 255, 0.625);
+                padding: 2rem;
+
+                width: 30vw;
+            }
+
+            #REGISTRACIJA h2{
+                font-size: 1.5rem;
+                background-color: #3d6eaf;
+                padding: 0.5rem;
+                color: white;
+
+                text-align: center;
+                width: 15vw;
+            }
+
+            input{
+                font-size: 1.2rem;
+                padding: 0.8rem;
+                border: none;
+            }
+
+            #REGISTRACIJA button{
+                font-size: 1.5rem;
+                background-color: #3d6eaf;
+                border: none;
+                padding: 0.5rem;
+                color: white;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+
+                gap: 1rem;
+            }
+
+            @media (max-width: 768px){
+                #REGISTRACIJA{
+                    width: 60vw;
+                }
+                #REGISTRACIJA h2{
+                    font-size: 1rem;
+                    width: 40vw;
+                }
+                input{
+                    font-size: 1rem;
+                }
+                #REGISTRACIJA button{
+                    font-size: 1rem;
+                }
+            }
+        </style>
+
+        <script>
+            let unos_imena, unos_email, unos_sifra, dugme_registruj;
+
+            unos_imena=document.getElementById("ime");
+            unos_email=document.getElementById("email");
+            unos_sifra=document.getElementById("sifra");
+
+            dugme_registruj=document.getElementById("registruj");
+
+            dugme_registruj.addEventListener("click" , async ()=>{
+                let odg=await fetch("/adminReg", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body:JSON.stringify({
+                        ime: unos_imena.value,
+                        email: unos_email.value,
+                        sifra: unos_sifra.value
+                    })
+                })
+
+                let podaci=await odg.json();
+                console.log(podaci);
+
+                if(podaci=='Nije verifikovan.'){
+                    window.alert('Verifikacija nije uspela.');
+                }
+
+                else{
+                    window.location.href="admin_panel.html";
+                }
+            })
+        </script>
+    </body>
+</html>

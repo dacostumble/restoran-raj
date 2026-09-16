@@ -1,0 +1,737 @@
+body{
+    margin: 0rem;
+    z-index: 0;
+
+    font-family: "Sansation", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*narandzasti p-ovi*/
+.detalji_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+@media (max-width: 768px){
+    .detalji_div{
+        flex-direction: row;
+    }
+
+    .detalji_div p{
+        width: 100%;
+    }
+}
+
+button{
+    font-family: "Sansation", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    border-radius: 0.3rem;
+}
+
+input, div, h1, h2, h3, p, a{
+    border-radius: 0.3rem;
+}
+
+#ime_rest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 1rem;
+}
+
+@media (max-width: 768px){
+    #ime_rest h1{
+        font-size: 1rem;
+    }
+
+    #ime_rest p{
+        display: none;
+    }
+}
+
+#ime_rest p{
+    opacity: 50%;
+}
+
+nav{
+    position: fixed;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    width: 100%;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    gap: 20rem;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.445);
+
+    height: 5vh;
+}
+
+@media (max-width: 768px){
+    nav{
+        gap: 1rem;
+        text-align: center;
+        justify-content: center;
+        height: auto;
+    }
+}
+
+nav h1{
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#dugmad_nav{
+    display: flex;
+    gap: 2rem;
+}
+
+#dugmad_nav div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+#dugmad_nav div a{
+    text-decoration: none;
+    color: white;
+}
+
+.nav_dugmad button, a{
+    padding: 0.5rem;
+    border: none;
+}
+
+@media (max-width: 768px){
+    .nav_dugmad img{
+        display: none;
+    }
+}
+
+#HERO{
+    height: 100vh;
+    background-size: cover;
+    background-attachment: scroll;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    color: white;
+
+    border-radius: 0rem;
+}
+
+@media (max-width: 768px){
+    #HERO h1{
+        font-size: 2rem;
+        text-align: center;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+}
+
+#HERO p{
+    width: 60%;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px){
+    #HERO p{
+        font-size: 0.8rem;
+        width: 70%;
+    }
+}
+
+#ime_sekcije{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+@media (max-width: 768px){
+    #ime_sekcije{
+        text-align: center;
+    }
+}
+
+.info_o_restoranu{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+
+    gap: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+@media (max-width: 768xp){
+    .info_o_restoranu{
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.info_o_restoranu img{
+    width: 60vw;
+    border-radius: 0.5rem;
+}
+
+@media (max-width: 768px){
+    .info_o_restoranu img{
+        display: none;
+    }
+}
+
+.info_o_restoranu p{
+    text-align: justify;
+    font-size: 1.3rem;
+    line-height: 2rem;
+
+    opacity: 70%;
+}
+
+@media (max-width: 768px){
+    .info_o_restoranu p{
+        font-size: 1rem;
+    }
+}
+
+.tekst_dugme{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#oceni{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+    background-color: #3d6eaf;
+    color: white;
+
+    font-size: 1rem;
+}
+
+#oceni img{
+    width: 1rem;
+}
+
+.dugmad_info_o_res{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.OBROCI{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+@media (max-width: 768px){
+    .OBROCI{
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}
+
+@media (max-width: 768px){
+    .OBROCI{
+        justify-content: center;
+    }
+}
+
+.obrok{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #f8f8f8;
+    width: 20%;
+
+    gap: 0.5rem;
+    height: 42vh;
+    padding: 1rem;
+
+    border: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+.obrok:hover{
+    transform: translateY(-5px);
+    transition: 0.2s ease-out;
+}
+
+@media (max-width: 768px){
+    .obrok{
+        width: 30%;
+        height: 38vh;
+        justify-content: center;
+    }
+}
+
+.ime_cena{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.obrok>button{
+    background-color: #3d6eaf;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+
+    font-size: 1rem;
+}
+
+.obrok h3{
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    .obrok h3{
+        font-size: 0.8rem;
+    }
+
+    .obrok>button{
+        font-size: 0.8rem;
+    }
+}
+
+.obrok p{
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    .obrok p{
+        font-size: 0.8rem;
+    }
+}
+
+.obrok img{
+    width: 70%;
+    height: 28%;
+}
+
+@media (max-width: 768px){
+    .obrok img{
+        width: 100%;
+        height: 20%;
+    }
+}
+
+.kolicina{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.kolicina input{
+    border: none;
+    padding: 0.5rem;
+
+    border: 1px solid rgba(128, 128, 128, 0.355);
+    width: 5rem;
+}
+
+@media (max-width: 768px){
+    .kolicina input{
+        border: none;
+        padding: 0.3rem;
+
+        border: 1px solid rgba(128, 128, 128, 0.355);
+        width: 4rem;
+
+        text-align: center;
+    }
+}
+
+#unos_recenzije{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-left: 3rem;
+    margin-right: 3rem;
+
+    gap: 1rem;
+}
+
+@media (max-width: 768px){
+    #unos_recenzije{
+        flex-direction: column;
+    }
+}
+
+#unos_recenzije input, button{
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+#recenzije{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    height: 30vh;
+    padding: 1rem;
+
+    margin-left: 3rem;
+    margin-right: 3rem;
+
+    font-size: 1.5rem;
+
+    border-radius: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+
+    overflow: scroll;
+}
+
+@media (max-width: 768px){
+    #recenzije{
+        font-size: 1rem;
+    }
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+}
+
+/*******************************************************/
+/*******************************************************/
+/*******************************************************/
+
+#KORPA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+@media(max-width: 768px){
+    #KORPA{
+        flex-direction: column;
+        gap: 5rem;
+    }
+}
+
+#PRVI_DEO{
+    padding-top: 1rem;
+
+    width: 50vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    border-right: 1px solid rgba(128, 128, 128, 0.355);
+
+    overflow: scroll;
+}
+
+@media (max-width: 768px){
+    #PRVI_DEO{
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100vw;
+        height: 60vh;
+    }
+}
+
+#DRUGI_DEO{
+    padding-top: 1rem;
+
+    width: 50vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+@media (max-width: 768px){
+    #DRUGI_DEO{
+        justify-content: center;
+        align-items: flex-start;
+        width: 100vw;
+    }
+}
+
+#opis_sekcije{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+#ime_pod_sekcije{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+#KORPA_SADRZAJ{
+    margin-left: 3rem;
+    margin-right: 3rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (max-width: 768px){
+    #KORPA_SADRZAJ{
+        align-items: flex-start;
+    }
+}
+
+.proizvod{ 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 1rem;
+
+    background-color: #f8f8f8;
+
+    padding: 1rem;
+
+    border: 1px solid rgba(128, 128, 128, 0.355);
+
+    width: 35vw;
+}
+
+@media (max-width: 768px){
+    .proizvod{
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+#poruka{
+    padding: 0.5rem;
+    border: none;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+
+    width: 40%;
+    margin-left: 3rem;
+}
+
+.proizvod img{
+    width: 4rem;
+}
+
+.proizvod button{
+    background-color: red;
+    padding: 0.5rem;
+    border: none;
+    color: white;
+}
+
+#odabir{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-left: 3rem;
+    gap: 1rem;
+}
+
+#odabir button{
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+#cena_preuzimanja{
+    margin-left: 3rem;
+}
+
+form{
+    margin-left: 3rem;
+    gap: 1rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+#dostava input{
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+#potvrda_dostava{
+    margin-left: 3rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+#vreme{
+    margin-left: 3rem;
+}
+
+#placanje_info{
+    margin-left: 3rem;
+}
+
+#placanje_info p{
+    background-color: green;
+    width: 90%;
+    padding: 0.5rem;
+    text-align: center;
+    color: white;
+
+    font-size: 1.2rem;
+}
+
+#plati{
+    margin-left: 3rem;
+
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+
+    background-color: #3d6eaf;
+    color: white;
+}
+
+/*******************************************************/
+/*******************************************************/
+/*******************************************************/
+
+#dugmad{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+@media (max-width: 768px){
+    #dugmad{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+#dugmad #sifra, #kontakt_za_brisanje, #gotova_porudzbina_dugme, #obrisi_po_broju{
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+#zarada, #status_smene{
+    color: green;
+
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 3rem;
+}
+
+#dugmad button{
+    font-size: 1rem;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 1rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#dugmad button img{
+    width: 1.5rem;
+}
+
+#pauza{
+    background-color: #5f83b1;
+    color: white;
+}
+
+#zaustavi{
+    background-color: red;
+    color: white;
+    padding: 0rem;
+}
+
+#pokreni{
+    background-color: #3d6eaf;
+    color: white;
+    padding: 0rem;
+}
+
+#PORUDZBINE{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    margin-left: 3rem;
+    margin-right: 3rem;
+}

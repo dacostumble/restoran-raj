@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Obaveštenje</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="OBAVESTENJE">
+            <div id="zvono">
+                <img src="Slike/zvono.png" alt="Loading...">
+                <h3>Obaveštenje</h3>
+            </div>
+
+            <p>
+                Vaša porudžbina je spremna. Ukoliko ste odabrali 
+                <b>lično preuzimanje</b>, možete je pokupiti u našem lokalu. 
+                Ukoliko ste odabrali <b>dosatvu</b>, očekujte je u što kraćem 
+                periodu. Hvala Vam na poverenju, uživajte!
+            </p>
+        </div>
+
+        <style>
+            body{
+                background-image: url("Slike/licno.png");
+                background-attachment: scroll;
+                background-size: cover;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                height: 100vh;
+
+                font-family: "Sansation", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            #OBAVESTENJE{
+                background-color: white;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                padding: 1rem;
+
+                width: 40vw;
+                border-radius: 0.5rem;
+            }
+
+            #OBAVESTENJE p{
+                margin-left: 2rem;
+                margin-right: 2rem;
+
+                text-align: justify;
+
+                font-size: 1.5rem;
+            }
+
+            #zvono{
+                background-color: #3d6eaf;
+                color: white;
+                width: 55%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                gap: 1rem;
+
+                border-radius: 0.5rem;
+            }
+
+            #zvono img{
+                width: 2rem;
+            }
+
+            @media (max-width: 768px){
+                #OBAVESTENJE{
+                    width: 70vw;
+                }
+
+                #OBAVESTENJE p{
+                    font-size: 1.2rem;
+                }
+            }
+
+            @media ((min-width: 769px) and (max-width: 1024px)){
+                #OBAVESTENJE{
+                    width: 50vw;
+                }
+
+                #OBAVESTENJE p{
+                    font-size: 1.2rem;
+                }
+            }
+        </style>
+    </body>
+</html>
