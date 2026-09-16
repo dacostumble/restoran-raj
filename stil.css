@@ -510,6 +510,8 @@ footer{
         justify-content: center;
         align-items: flex-start;
         width: 100vw;
+
+        padding-bottom: 5rem;
     }
 }
 
