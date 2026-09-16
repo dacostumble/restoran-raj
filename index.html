@@ -374,6 +374,7 @@
             <input type="text" minlength="0" maxlength="100" placeholder="Recenzija (max 100 kar.)" id="poruka_recenzija">
 
             <button id="pos_recenziju">Objavi</button>
+            <button id="osvezi_recenziju">Osveži</button>
         </div>
 
         <br><br>
@@ -491,6 +492,7 @@
             //Dodavanje/citanje recenzija:
 
             let dodaj_rec_ime, dodaj_rec_poruku, pos_rec;
+            let osvezi_recenziju=document.getElementById("osvezi_recenziju");
 
             dodaj_rec_ime=document.getElementById("ime_recenzija");
             dodaj_rec_poruku=document.getElementById("poruka_recenzija");
@@ -522,7 +524,7 @@
                 }
             })
 
-            setInterval(()=>{
+            osvezi_recenziju.addEventListener("click" , ()=>{
                 fetch("/lista_recenzija")
                 .then(odg=>odg.json())
                 .then(podatak=>{
@@ -543,7 +545,7 @@
                     else recenzije_rod.textContent="Još nema recenzija.";
                 })
                 recenzije_rod.textContent=` `;
-            }, 30000) //30 sec.
+            })
         </script>
     </body>
 </html>
