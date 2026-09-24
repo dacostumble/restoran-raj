@@ -136,6 +136,9 @@ server.get('/zvono.png' , (zahtev, odg) => {
 server.get('/licno.png' , (zahtev, odg) => {
     odg.sendFile(path.join(__dirname, "licno.png"));
 })
+server.get('/OCENA.png' , (zahtev, odg) => {
+    odg.sendFile(path.join(__dirname, "OCENA.png"));
+})
 
 //NARUCIVANJE SA FRONT-END-a
 
