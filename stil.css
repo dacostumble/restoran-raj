@@ -168,7 +168,7 @@ nav h1{
     }
 }
 
-#hero_dugmad{
+#dugmad_hero{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -305,7 +305,7 @@ nav h1{
     align-items: center;
     flex-direction: column;
 
-    background-color: #f8f8f844;
+    background-color: #f8f8f85e;
     width: 20%;
 
     gap: 0.5rem;
@@ -313,7 +313,7 @@ nav h1{
     padding: 1rem;
 
     border: 1px solid rgba(128, 128, 128, 0.079);
-    box-shadow: 8px 8px 8px rgba(141, 141, 141, 0.152);
+    box-shadow: 8px 8px 8px rgba(141, 141, 141, 0.251);
 }
 
 .obrok:hover{
@@ -323,8 +323,8 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok{
-        width: 30%;
-        height: 28vh;
+        width: 70%;
+        height: 45vh;
         justify-content: center;
     }
 
@@ -366,7 +366,7 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok h3{
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 
     .obrok>button{
@@ -380,7 +380,7 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok p{
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 }
 
@@ -392,7 +392,7 @@ nav h1{
 @media (max-width: 768px){
     .obrok img{
         width: 70%;
-        height: 30%;
+        height: 40%;
     }
 }
 
@@ -413,6 +413,10 @@ nav h1{
 }
 
 @media (max-width: 768px){
+    .kolicina{
+        flex-direction: row;
+    }
+
     .kolicina input{
         border: none;
         padding: 0.3rem;
@@ -473,6 +477,8 @@ nav h1{
 @media (max-width: 768px){
     #recenzije{
         font-size: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
 
@@ -552,6 +558,8 @@ footer{
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
+
+    padding-bottom: 2rem;
 }
 
 @media (max-width: 768px){
@@ -819,5 +827,4 @@ form{
 
     margin-left: 3rem;
     margin-right: 3rem;
-    padding: 1rem;
 }

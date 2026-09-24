@@ -255,7 +255,7 @@
                 <div class="ime_cena">
                 <h3 class="naziv_jela">Chia puding sa bananom</h3>
                 <p class="cena_jela">350 RSD</p></div>
-                <p style="opacity: 50%;">3.50€, 320 kcal, 10g P, 38g UH</p>
+                <p style="opacity: 50%;">320 kcal, 10g P, 38g UH</p>
 
                 <div class="kolicina">
                     <input type="number" min="1" max="10" class="kol" placeholder="Količina"></input>
@@ -482,15 +482,6 @@
             dodaj_rec_poruku=document.getElementById("poruka_recenzija");
             pos_rec=document.getElementById("pos_recenziju");
 
-            let recenzije_rod=document.getElementById("recenzije");
-            let dugme_za_nav=document.getElementById("oceni");
-
-            dugme_za_nav.addEventListener("click" , ()=>{
-                recenzije_rod.scrollIntoView({
-                    behavior: "smooth"
-                });
-            })
-
             pos_rec.addEventListener("click" , event=>{
                 if(dodaj_rec_ime.value.trim="" || dodaj_rec_poruku.value.trim=="") window.alert("Ne možete poslati praznu recenziju!");
 
@@ -506,6 +497,8 @@
                         })
                     })
                 }
+
+                window.alert('Vaša recenzija je dodata!');
             })
 
             osvezi_recenziju.addEventListener("click" , ()=>{
