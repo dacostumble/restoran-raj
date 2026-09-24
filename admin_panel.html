@@ -13,6 +13,22 @@
     </head>
 
     <body>
+        <div id="LISTA_JELA_DIV_ROD" style="display: none;">
+            <div id="LISTA_JELA_DIV">
+                <div id="dugmad_jela">
+                    <input type="text" placeholder="Naziv jela" id="unos_imena_jela">
+                    <button id="dostupno">D</button>
+                    <button id="nedostupno">N</button>
+
+                    <button id="zatvori" style="background-color: black;color: white;">X</button>
+                </div>
+
+                <br>
+
+                *IDEJA* : PROMENA DOSTUPNOSTI JELA
+            </div>
+        </div>
+
         <div id="ADMIN_DIV">
             <h1 id="ime_sekcije">Admin panel</h1>
             <p id="opis_sekcije">
@@ -23,8 +39,9 @@
             <h4 id="zarada">0.00 RSD</h4>
 
             <div id="dugmad">
-                <button id="zaustavi"><img src="stani.png" alt="Loading..."><p>Kraj smene</p></button>
-                <button id="pokreni"><img src="kreni.png" alt="Loading..."><p>Ponovo pokreni</p></button>
+                <button id="zaustavi"><img src="stani.png" alt="Loading...">Kraj smene</button>
+                <button id="pokreni"><img src="kreni.png" alt="Loading...">Ponovo pokreni</button>
+                <button id="izmeni"><img src="izmeni.png" alt="Loading...">Izmeni</button>
         
                 <input type="number" placeholder="Šifra porudžbine" min="0" id="sifra">
                 <button id="gotova_porudzbina_dugme">Gotovo</button>
@@ -176,6 +193,20 @@
                 let poruka=await odg.json();
 
                 if(poruka==1) window.alert("Smena uspešno započeta!");
+            })
+
+            //Dostupnost jela:
+            let izmeni=document.getElementById("izmeni");
+            let izmena_jela_rod=document.getElementById("LISTA_JELA_DIV_ROD");
+            let izmena_jela_div=document.getElementById("LISTA_JELA_DIV");
+            let zatvori=document.getElementById("zatvori");
+
+            izmeni.addEventListener("click" , async ()=>{
+                izmena_jela_rod.style.display="flex";
+            })
+
+            zatvori.addEventListener("click" , ()=>{
+                izmena_jela_rod.style.display="none";
             })
         </script>
     </body>

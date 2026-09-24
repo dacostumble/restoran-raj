@@ -42,9 +42,15 @@ const recenzijas=new shema({
     poruka: String,
 })
 
+const jelas=new shema({
+    ime: String,
+    dostupno: Boolean
+})
+
 const porudzbina=mongoose.model("porudzbina" , shemak);
 const smena=mongoose.model("smena" , shemas);
 const recenzija=mongoose.model("recenzija" , recenzijas);
+const jela=mongoose.model("jela" , jelas);
 
 //MIDDLWARE: raspakovanje json-a + cors
 
@@ -57,58 +63,33 @@ server.get('/korpa.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "k
 
 //RADIII!!
 server.get('/HERO.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "HERO.png")));
-
 server.get('/o_res_1.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "o_res_1.png")));
-
 server.get('/zvezdica.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "zvezdica.png")));
-
 server.get('/Cezar.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Cezar.png")));
-
 server.get('/Slike/Grcka.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Slike" , "Grcka.png")));
-
 server.get('/Tuna.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Tuna.png")));
-
 server.get('/Sopska.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Sopska.png")));
-
 server.get('/Grcka.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Grcka.png")));
-
 server.get('/Piletina.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Piletina.png")));
-
 server.get('/Losos.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Losos.png")));
-
 server.get('/Testenina.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Testenina.png")));
-
 server.get('/Rizoto.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Rizoto.png")));
-
 server.get('/Omlet.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Omlet.png")));
-
 server.get('/Ovsene.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Ovsene.png")));
-
 server.get('/Tost.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Tost.png")));
-
 server.get('/Palacinke.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Palacinke.png")));
-
 server.get('/Med i orasi.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Med i orasi.png")));
-
 server.get('/Chia puding.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Chia puding.png")));
-
 server.get('/Mafin.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "Mafin.png")));
-
 server.get('/Energetske kuglice.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "Energetske kuglice.png")));
-
 server.get('/banana.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "banana.png")));
-
 server.get('/jagoda.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "jagoda.png")));
-
 server.get('/zeleni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "zeleni.png")));
-
 server.get('/limunada.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "limunada.png")));
-
 server.get('/kraj.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "kraj.png")));
-
 server.get('/stani.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "stani.png")));
-
 server.get('/kreni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "kreni.png")));
+server.get('/izmeni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "izmeni.png")));
 
 //DEFINISANJE OSTALIH RUTI:
 
@@ -310,4 +291,16 @@ server.get('/lista_recenzija' , async (zahtev, odg) => {
     const lista_recenzija = await recenzija.find();
 
     odg.send(lista_recenzija);
+})
+
+//ADMIN PANEL MENJA DOSTUPNOST + CENU:
+
+server.get('/admin_lista_jela' , async (zahtev, odg) => {
+    try{
+        const lista_jela = await jela.find();
+        odg.send(lista_jela);
+    }
+    catch(error){
+        throw error;
+    }
 })

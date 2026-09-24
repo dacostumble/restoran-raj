@@ -559,7 +559,7 @@ footer{
     align-items: flex-start;
     flex-direction: column;
 
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 @media (max-width: 768px){
@@ -568,7 +568,8 @@ footer{
         align-items: flex-start;
         width: 100vw;
 
-        padding-bottom: 8rem;
+        padding-bottom: 1rem;
+        padding-top: 4rem;
     }
 }
 
@@ -730,6 +731,51 @@ form{
 /*******************************************************/
 /*******************************************************/
 
+#LISTA_JELA_DIV_ROD{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    z-index: 2;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+#LISTA_JELA_DIV{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+
+    gap: 0.5rem;
+
+    position: relative;
+
+    background-color: #f8f8f8;
+    padding: 2rem;
+
+    width: 40vw;
+    height: 60vh;
+
+    overflow-y: scroll;
+}
+
+#LISTA_JELA_DIV input{
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+#dugmad_jela{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 #ADMIN_DIV{
     background-color: black;
     color: white;
@@ -811,7 +857,7 @@ form{
     padding: 0rem;
 }
 
-#pokreni{
+#pokreni, #izmeni{
     background-color: #3d6eaf;
     color: white;
     padding: 0rem;
