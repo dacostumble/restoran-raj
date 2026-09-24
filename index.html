@@ -37,7 +37,10 @@
                 Uživajte u sveže pripremljenim jelima, pažljivo odabranim sastojcima i jednostavnoj online porudžbini
             </p>
 
-            <p id="status_smene_p" style="padding: 0.5rem; background-color: green; width: 6rem;">Otvoreno</p>
+            <div id="HERO_dugmad">
+                <button id="status_smene_p" style="padding: 0.5rem; background-color: green; width: 6rem;">Otvoreno</button>
+            </div>
+            
         </div>
 
         <!--SALATE--><br><br>
@@ -482,6 +485,8 @@
             dodaj_rec_poruku=document.getElementById("poruka_recenzija");
             pos_rec=document.getElementById("pos_recenziju");
 
+            let recenzije_rod=document.getElementById("recenzije");
+
             pos_rec.addEventListener("click" , event=>{
                 if(dodaj_rec_ime.value.trim="" || dodaj_rec_poruku.value.trim=="") window.alert("Ne možete poslati praznu recenziju!");
 
@@ -496,9 +501,9 @@
                             "por_rec": dodaj_rec_poruku.value
                         })
                     })
-                }
 
-                window.alert('Vaša recenzija je dodata!');
+                    window.alert('Vaša recenzija je dodata!');
+                }
             })
 
             osvezi_recenziju.addEventListener("click" , ()=>{
