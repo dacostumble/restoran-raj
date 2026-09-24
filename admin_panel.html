@@ -13,26 +13,27 @@
     </head>
 
     <body>
-        <h1 id="ime_sekcije">Admin panel</h1>
-        <h4 id="zarada">Dnevna zarada: 0.00 RSD</h4>
-        <p id="opis_sekcije">
-            <b>Klikom na dugme "Kraj smene", smena se završava i dnevni iznos se 
-                vraća na 0.00 RSD</b><br>
-        </p>
+        <div id="ADMIN_DIV">
+            <h1 id="ime_sekcije">Admin panel</h1>
+            <p id="opis_sekcije">
+                <b>Klikom na dugme "Kraj smene", smena se završava i dnevni iznos se 
+                    vraća na 0.00 RSD</b><br>
+            </p>
 
-        <br>
+            <h4 id="zarada">0.00 RSD</h4>
 
-        <div id="dugmad">
-            <button id="zaustavi"><img src="stani.png" alt="Loading..."><p>Kraj smene</p></button>
-            <button id="pokreni"><img src="kreni.png" alt="Loading..."><p>Ponovo pokreni</p></button>
-            
-            <input type="number" placeholder="Šifra porudžbine" min="0" id="sifra">
-            <button id="gotova_porudzbina_dugme">Gotovo</button>
-            <button id="obrisi_po_broju">Obriši</button>
+            <div id="dugmad">
+                <button id="zaustavi"><img src="stani.png" alt="Loading..."><p>Kraj smene</p></button>
+                <button id="pokreni"><img src="kreni.png" alt="Loading..."><p>Ponovo pokreni</p></button>
+        
+                <input type="number" placeholder="Šifra porudžbine" min="0" id="sifra">
+                <button id="gotova_porudzbina_dugme">Gotovo</button>
+                <button id="obrisi_po_broju">Obriši</button>
+            </div>
+
+            <br><br>
         </div>
 
-        <br><br>
-        <hr>
         <br>
 
         <h1 id="ime_sekcije">Porudžbine</h1>
@@ -89,7 +90,7 @@
                             }
 
                             s=s+Number(podatak[j].racun);
-                            zarada.textContent=`Dnevna zarada: ${s} RSD`;
+                            zarada.textContent=`${s} RSD`;
                         }
                     })
                 }
@@ -100,7 +101,7 @@
 
                 admin_lista.innerHTML=` `;
                 s=0.0;
-                zarada.textContent=`Dnevna zarada: ${s} RSD`;
+                zarada.textContent=`${s} RSD`;
             }, 5000);
 
             //Gotova porudžbina:

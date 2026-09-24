@@ -33,7 +33,7 @@
                 <h3 id="ime_pod_sekcije">Sadržaj korpe</h3>
                 
                 <div id="KORPA_SADRZAJ">
-                    
+                    <p style="opacity: 70%; font-size: 1.2rem;" id="prazno">Vaša korpa je trenutno prazna.</p>
                 </div>
             </div>
 
@@ -139,6 +139,13 @@
                 //console.log(`Parsiran: ${parsiran_niz[j]}`);
             }
 
+            if(s==0){
+                prazno.style.display="flex";
+            }
+            else{
+                prazno.style.display="none";
+            }
+
             //popunjavanje forme za preuzimanje:
             /**************************************************************/
 
@@ -160,7 +167,8 @@
 
             licno.addEventListener("click" , ()=>{
                 licno.style.border="2px solid green";
-                dostava.style.border="none";
+                dostava.style.border="1px solid #8080805b";
+
                 adresa.style.display="none";
                 okrug.style.display="none";
                 potvrdi_adresu.style.display="none";
@@ -170,7 +178,7 @@
 
             dostava.addEventListener("click" , ()=>{
                 dostava.style.border="2px solid green";
-                licno.style.border="none";
+                licno.style.border="1px solid #8080805b";
 
                 unos_ime.style.display="flex";
                 unos_telefon.style.display="flex";

@@ -80,7 +80,7 @@ nav{
     gap: 20rem;
 
     color: white;
-    background-color: rgba(0, 0, 0, 0.445);
+    background-color: rgb(0, 0, 0);
 
     height: 5vh;
 }
@@ -102,7 +102,7 @@ nav h1{
 
 #dugmad_nav{
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 #dugmad_nav div{
@@ -111,11 +111,13 @@ nav h1{
     align-items: center;
     flex-direction: row;
     gap: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 #dugmad_nav div a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .nav_dugmad button, a{
@@ -164,6 +166,13 @@ nav h1{
         font-size: 0.8rem;
         width: 70%;
     }
+}
+
+#hero_dugmad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 #ime_sekcije{
@@ -254,6 +263,13 @@ nav h1{
     gap: 1rem;
 }
 
+#filteri{
+    margin-left: 3rem;
+    margin-right: 3rem;
+    display: flex;
+    gap: 1rem;
+}
+
 .OBROCI{
     display: flex;
     justify-content: flex-start;
@@ -289,14 +305,15 @@ nav h1{
     align-items: center;
     flex-direction: column;
 
-    background-color: #f8f8f8;
+    background-color: #f8f8f844;
     width: 20%;
 
     gap: 0.5rem;
-    height: 42vh;
+    height: 32vh;
     padding: 1rem;
 
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1px solid rgba(128, 128, 128, 0.079);
+    box-shadow: 8px 8px 8px rgba(141, 141, 141, 0.152);
 }
 
 .obrok:hover{
@@ -307,8 +324,12 @@ nav h1{
 @media (max-width: 768px){
     .obrok{
         width: 30%;
-        height: 38vh;
+        height: 28vh;
         justify-content: center;
+    }
+
+    .obrok button{
+        font-size: 0.8rem;
     }
 }
 
@@ -320,7 +341,17 @@ nav h1{
     gap: 0.5rem;
 }
 
-.obrok>button{
+.ime_cena h3{
+    font-size: 1rem;
+    max-width: 60%;
+}
+
+.ime_cena p{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.obrok button{
     background-color: #3d6eaf;
     color: white;
     padding: 0.5rem;
@@ -355,13 +386,13 @@ nav h1{
 
 .obrok img{
     width: 70%;
-    height: 28%;
+    height: 35%;
 }
 
 @media (max-width: 768px){
     .obrok img{
-        width: 100%;
-        height: 20%;
+        width: 70%;
+        height: 30%;
     }
 }
 
@@ -414,15 +445,16 @@ nav h1{
     font-size: 1.2rem;
     padding: 0.5rem;
     border: 1px solid rgba(128, 128, 128, 0.355);
+    background-color: rgba(255, 255, 255, 0.817);
 }
 
 #recenzije{
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 
-    height: 30vh;
+    height: 20vh;
     padding: 1rem;
 
     margin-left: 3rem;
@@ -431,9 +463,11 @@ nav h1{
     font-size: 1.5rem;
 
     border-radius: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1px solid #8080805b;
 
-    overflow: scroll;
+    overflow-y: scroll;
+
+    background-color: rgba(255, 255, 255, 0.817);;
 }
 
 @media (max-width: 768px){
@@ -442,12 +476,27 @@ nav h1{
     }
 }
 
+#OCENA{
+    background-image: url("OCENA.png");
+    padding: 2rem;
+    color: white;
+}
+
+#rec_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 footer{
     display: flex;
     justify-content: center;
     align-items: center;
 
-    color: black;
+    color: white;
+    background-color: black;
 }
 
 /*******************************************************/
@@ -542,6 +591,23 @@ footer{
     }
 }
 
+#KORPA_SADRZAJ a{
+    text-decoration: none;
+    background-color: #3d6eaf;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+
+    font-size: 1rem;
+}
+
+#prazna{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 .proizvod{ 
     display: flex;
     justify-content: flex-end;
@@ -579,12 +645,6 @@ footer{
     width: 4rem;
 }
 
-.proizvod button{
-    background-color: red;
-    padding: 0.5rem;
-    border: none;
-    color: white;
-}
 
 #odabir{
     display: flex;
@@ -660,6 +720,13 @@ form{
 /*******************************************************/
 /*******************************************************/
 
+#ADMIN_DIV{
+    background-color: black;
+    color: white;
+    padding-top: 1rem;
+    border-radius: 0rem;
+}
+
 #dugmad{
     display: flex;
     justify-content: flex-start;
@@ -668,6 +735,15 @@ form{
     gap: 1rem;
     margin-left: 3rem;
     margin-right: 3rem;
+}
+
+#dugmad button{
+    height: 3rem;
+}
+
+#dugmad button:hover{
+    transform: translateY(-5px);
+    transition: 0.2s ease-out;
 }
 
 @media (max-width: 768px){
@@ -680,14 +756,19 @@ form{
 #dugmad #sifra, #kontakt_za_brisanje, #gotova_porudzbina_dugme, #obrisi_po_broju{
     padding: 0.5rem;
     border: 1px solid rgba(128, 128, 128, 0.355);
+
+    height: 1.92rem;
 }
 
-#zarada, #status_smene{
-    color: green;
+#zarada{
+    background-color: green;
 
     font-size: 1.5rem;
-    text-align: left;
+    text-align: center;
     margin-left: 3rem;
+    padding: 0.5rem;
+    max-width: 10rem;
+    border-radius: 0.5rem;
 }
 
 #dugmad button{
@@ -736,4 +817,5 @@ form{
 
     margin-left: 3rem;
     margin-right: 3rem;
+    padding: 1rem;
 }
