@@ -94,13 +94,19 @@
                             
                             admin_lista.append(p);
 
-                            let korpa=JSON.stringify(podatak[j].korpa);
+                            let korpa=podatak[j].korpa;
                             console.log(korpa);
 
                             p.textContent=`
-                                Ime: ${podatak[j].ime}, Adresa: ${podatak[j].adresa}, Kontakt: ${podatak[j].kontakt}, poruka: ${podatak[j].poruka}, KORPA: ${korpa}, UKUPNO: ${podatak[j].racun}
+                                Ime: ${podatak[j].ime}, Adresa: ${podatak[j].adresa}, Kontakt: ${podatak[j].kontakt}, poruka: ${podatak[j].poruka}, UKUPNO: ${podatak[j].racun}
                             `;
 
+                            for(let x=0; x<korpa.length; x++){
+                                let p2=document.createElement("p");
+                                p2.textContent=`${korpa[x].kolicina}x - 
+                                ${korpa.ime} - ${korpa.cena}`;
+                            }
+                            
                             //provera stanja:
                             if(podatak[j].gotovo_stanje == true){
                                 p.style="opacity: 30%";
