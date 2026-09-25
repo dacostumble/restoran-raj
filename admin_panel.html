@@ -101,18 +101,19 @@
                                 Ime: ${podatak[j].ime}, Adresa: ${podatak[j].adresa}, Kontakt: ${podatak[j].kontakt}, poruka: ${podatak[j].poruka}, UKUPNO: ${podatak[j].racun}
                             `;
 
+                            let p2=[];
                             for(let x=0; x<korpa.length; x++){
-                                let p2=document.createElement("p");
-                                p2.textContent=`${korpa[x].kolicina}x - 
+                                p2[x]=document.createElement("p");
+                                p2[x].textContent=`${korpa[x].kolicina}x - 
                                 ${korpa[x].naziv} - ${korpa[x].cena}`;
 
-                                admin_lista.append(p2);
+                                admin_lista.append(p2[x]);
                             }
                             
                             //provera stanja:
                             if(podatak[j].gotovo_stanje == true){
                                 p.style="opacity: 30%";
-                                for(let x=0; x<korpa[j].length; x++) p2[j].style="opacity: 30%";
+                                for(let x=0; x<korpa[j].length; x++) p2[x].style="opacity: 30%";
                             }
 
                             s=s+Number(podatak[j].racun);
