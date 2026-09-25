@@ -191,7 +191,7 @@ server.put('/gotovaPorudzbina' , async (zahtev, odg) => {
     const sifra=zahtev.body.sifra;
 
     try{
-        await porudzbina.findOneAndUpdate(
+        await porudzbina.updateMany( //gpt: updateMany
             {kontakt: sifra},
             {gotovo_stanje: true}
         )

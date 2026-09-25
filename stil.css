@@ -874,3 +874,10 @@ form{
     margin-left: 3rem;
     margin-right: 3rem;
 }
+
+.korpa_admin{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
