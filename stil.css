@@ -318,6 +318,8 @@ nav h1{
 
 @media (max-width: 768px){
     .dostupnost{
+        margin-right: 2rem;
+
         width: 15%;
         text-align: center;
 
@@ -409,6 +411,8 @@ nav h1{
 @media (max-width: 768px){
     .obrok p{
         font-size: 0.8rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
     }
 }
 
