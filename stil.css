@@ -386,7 +386,7 @@ nav h1{
 
 .obrok img{
     width: 70%;
-    height: 35%;
+    height: 28%;
 }
 
 @media (max-width: 768px){
@@ -422,7 +422,7 @@ nav h1{
         padding: 0.3rem;
 
         border: 1px solid rgba(128, 128, 128, 0.355);
-        width: 4rem;
+        width: 3rem;
 
         text-align: center;
     }
