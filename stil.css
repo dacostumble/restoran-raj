@@ -880,4 +880,6 @@ form{
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.5rem;
 }
