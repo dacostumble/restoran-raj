@@ -318,7 +318,6 @@ nav h1{
 
 @media (max-width: 768px){
     .dostupnost{
-        margin-left: 4rem;
         width: 15%;
         text-align: center;
 
@@ -352,7 +351,7 @@ nav h1{
 @media (max-width: 768px){
     .obrok{
         width: 40%;
-        height: 40vh;
+        height: 45vh;
     }
 
     .obrok button{
@@ -395,7 +394,7 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok h3{
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .obrok button{
