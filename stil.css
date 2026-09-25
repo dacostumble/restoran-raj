@@ -324,7 +324,7 @@ nav h1{
 @media (max-width: 768px){
     .obrok{
         width: 30%;
-        height: 35vh;
+        height: 40vh;
         justify-content: center;
     }
 
@@ -366,11 +366,11 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok h3{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
-    .obrok>button{
-        font-size: 0.8rem;
+    .obrok button{
+        font-size: 0.6rem;
     }
 }
 
@@ -380,7 +380,7 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok p{
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 }
 
