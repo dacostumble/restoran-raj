@@ -280,6 +280,8 @@ nav h1{
 
     margin-left: 3rem;
     margin-right: 3rem;
+
+    z-index: 0;
 }
 
 @media (max-width: 768px){
@@ -299,21 +301,45 @@ nav h1{
     }
 }
 
+.dostupnost{
+    position: absolute;
+    z-index: 2;
+
+    display: flex;
+    align-items: flex-start;
+
+    background-color: rgba(39, 126, 39, 0.919);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    margin-right: 13rem;
+}
+
+@media (max-width: 768px){
+    .dostupnost{
+        margin-left: 8rem;
+        width: 15%;
+        text-align: center;
+    }
+}
+
 .obrok{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 
     background-color: #f8f8f85e;
-    width: 20%;
+    width: 30%;
 
     gap: 0.5rem;
-    height: 32vh;
-    padding: 1rem;
+    height: 42vh;
 
     border: 1px solid rgba(128, 128, 128, 0.079);
     box-shadow: 8px 8px 8px rgba(141, 141, 141, 0.251);
+
+    z-index: inherit;
 }
 
 .obrok:hover{
@@ -323,9 +349,8 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok{
-        width: 30%;
-        height: 40vh;
-        justify-content: center;
+        width: 40%;
+        height:35vh;
     }
 
     .obrok button{
@@ -339,6 +364,8 @@ nav h1{
     align-items: center;
     flex-direction: row;
     gap: 0.5rem;
+
+    width: 80%;
 }
 
 .ime_cena h3{
@@ -385,13 +412,15 @@ nav h1{
 }
 
 .obrok img{
-    width: 70%;
-    height: 28%;
+    width: 100%;
+    height: 50%;
+
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
 }
 
 @media (max-width: 768px){
     .obrok img{
-        width: 70%;
         height: 40%;
     }
 }
