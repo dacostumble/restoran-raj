@@ -318,9 +318,9 @@ nav h1{
 
 @media (max-width: 768px){
     .dostupnost{
-        margin-right: 2rem;
+        margin-right: 3rem;
 
-        width: 15%;
+        width: 20%;
         text-align: center;
 
         font-size: 0.7rem;
