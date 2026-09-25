@@ -323,8 +323,8 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok{
-        width: 70%;
-        height: 45vh;
+        width: 30%;
+        height: 35vh;
         justify-content: center;
     }
 
