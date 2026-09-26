@@ -596,7 +596,7 @@
                         for(j=0; j<podatak.length; j++){
                             if(nazivi_jela[i].textContent==podatak[j].ime){
                                 dostupnost[i].style.backgroundColor="red";
-                                dostupnost[i].textContent="Neostupno";
+                                dostupnost[i].textContent="Nedostupno";
                                 dodaj_u_korpu[i].disabled=true;
                             }
 
@@ -608,7 +608,7 @@
                         }
                     }
                 })
-            }, 1000) //1 sec
+            }, 500) //1 sec
         </script>
     </body>
 </html>
