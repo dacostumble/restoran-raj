@@ -587,7 +587,7 @@
             //ako je nedostupno onda dugme za narucivanje disabled:true i opacitiy manji + tekst
 
             setInterval(async ()=>{
-                await fetch("proveri_dostupnost")
+                await fetch("/proveri_dostupnost")
                 .then(odg=>odg.json())
                 .then(podatak=>{
                     console.log(podatak);
@@ -597,13 +597,13 @@
                             if(nazivi_jela[i].textContent==podatak[j].ime){
                                 dostupnost[i].style.backgroundColor="red";
                                 dostupnost[i].textContent="Neostupno";
-                                dodaj_u_korpu[i].style.display="none";
+                                dodaj_u_korpu[i].disabled=true;
                             }
 
                             else{
                                 dostupnost[i].style.backgroundColor="green";
                                 dostupnost[i].textContent="Dostupno";
-                                dodaj_u_korpu[i].style.display="flex";
+                                dodaj_u_korpu[i].disabled=false;
                             }
                         }
                     }

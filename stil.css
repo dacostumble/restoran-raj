@@ -785,8 +785,8 @@ form{
 
 #LISTA_JELA_DIV_ROD{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     position: absolute;
     z-index: 2;
