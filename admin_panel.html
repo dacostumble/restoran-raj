@@ -238,43 +238,47 @@
             })
 
             d.addEventListener("click" , event=>{
-                if(unos_imena.value=" ") window.alert("Potreban je unos imena!");
+                if(unos_imena.value.trim="") window.alert("Potreban je unos imena!");
 
-                fetch("/promeni_na_dostupno" , {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body:JSON.stringify({
-                        ime: unos_imena.value
+                else{
+                    fetch("/promeni_na_dostupno" , {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body:JSON.stringify({
+                            ime: unos_imena.value
+                        })
                     })
-                })
                 .then(odg=>odg.json())
                 .then(podatak=>{
                     if(podatak==200){
                         window.alert("Stanje promenjeno na DOSTUPNO.");
                     }
                 })
+                }
             })
 
             n.addEventListener("click" , event=>{
-                if(unos_imena.value=" ") window.alert("Potreban je unos imena!");
+                if(unos_imena.value.trim="") window.alert("Potreban je unos imena!");
 
-                fetch("/promeni_na_nedostupno" , {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body:JSON.stringify({
-                        ime: unos_imena.value
+                else{
+                    fetch("/promeni_na_nedostupno" , {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body:JSON.stringify({
+                            ime: unos_imena.value
+                        })
+                        })
+                    .then(odg=>odg.json())
+                    .then(podatak=>{
+                        if(podatak==200){
+                            window.alert("Stanje promenjeno na NEDOSTUPNO.");
+                        }
                     })
-                })
-                .then(odg=>odg.json())
-                .then(podatak=>{
-                    if(podatak==200){
-                        window.alert("Stanje promenjeno na NEDOSTUPNO.");
-                    }
-                })
+                }
             })
 
             setInterval(()=>{
