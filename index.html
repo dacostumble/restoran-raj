@@ -533,7 +533,7 @@
             let recenzije_rod=document.getElementById("recenzije");
 
             pos_rec.addEventListener("click" , event=>{
-                if(dodaj_rec_ime.value.trim=" " || dodaj_rec_poruku.value.trim==" ") window.alert("Ne možete poslati praznu recenziju!");
+                if(dodaj_rec_ime.value="" || dodaj_rec_poruku.value=="") window.alert("Ne možete poslati praznu recenziju!");
 
                 else{
                     fetch("/dodaj_recenziju" , {
