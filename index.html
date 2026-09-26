@@ -592,18 +592,18 @@
                 .then(podatak=>{
                     console.log(podatak);
 
-                    for(let i=0; i<nazivi_jela.length; i++){
-                        for(j=0; j<podatak.length; j++){
-                            if(nazivi_jela[i].textContent==podatak[j].ime){
-                                dostupnost[i].style.backgroundColor="red";
-                                dostupnost[i].textContent="Nedostupno";
-                                dodaj_u_korpu[i].disabled=true;
+                    for(let i=0; i<podatak.length; i++){
+                        for(let j=0; j<nazivi_jela.length; j++){
+                            if(podatak[i].ime==nazivi_jela[j].textContent){
+                                dostupnost[j].style.backgroundColor="red";
+                                dostupnost[j].textContent="Nedostupno";
+                                dodaj_u_korpu[j].disabled=true;
                             }
 
                             else{
-                                dostupnost[i].style.backgroundColor="green";
-                                dostupnost[i].textContent="Dostupno";
-                                dodaj_u_korpu[i].disabled=false;
+                                dostupnost[j].style.backgroundColor="#277e27ea";
+                                dostupnost[j].textContent="Dostupno";
+                                dodaj_u_korpu[j].disabled=false;
                             }
                         }
                     }
