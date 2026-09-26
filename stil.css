@@ -831,6 +831,14 @@ form{
     text-align: center;
     border: 1px solid rgba(128, 128, 128, 0.355);
     padding: 0.5rem;
+
+    width: 30vw;
+}
+
+@media (max-width: 768px){
+    .lista_jela_p{
+        width: 70vw;
+    }
 }
 
 #lista_jela{
