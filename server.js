@@ -335,6 +335,8 @@ server.put('/promeni_na_dostupno' , async (zahtev, odg) => {
     catch(error){
         throw error;
     }
+
+    odg.send(200);
 })
 
 server.put('/promeni_na_nedostupno' , async (zahtev, odg) => {
@@ -350,4 +352,6 @@ server.put('/promeni_na_nedostupno' , async (zahtev, odg) => {
     catch(error){
         throw error;
     }
+
+    odg.send(200);
 })
