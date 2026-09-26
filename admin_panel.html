@@ -228,8 +228,8 @@
                 izmena_jela_rod.style.display="none";
             })
 
-            setInterval(async ()=>{
-                await fetch("/admin_lista_jela")
+            setInterval(()=>{
+                fetch("/admin_lista_jela")
                 .then(odg=>odg.json())
                 .then(podatak=>{
                     let n=podatak.length;
@@ -248,7 +248,7 @@
                 })
 
                 lista_jela.innerHTML=` `;
-            }, 5000) //1 sec.
+            }, 5000) //5 sec.
         </script>
     </body>
 </html>
