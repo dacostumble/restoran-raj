@@ -584,10 +584,14 @@
             //Proverava dostupnost jela:
             let dostupnost=document.getElementsByClassName("dostupnost");
 
+            //ako je nedostupno onda dugme za narucivanje disabled:true i opacitiy manji + tekst
+
             setInterval(async ()=>{
                 await fetch("proveri_dostupnost")
                 .then(odg=>odg.json())
                 .then(podatak=>{
+                    console.log(podatak);
+                    
                     for(let i=0; i<nazivi_jela.length; i++){
                         for(j=0; j<podatak.length; j++){
                             if(podatak[j].ime==nazivi_jela[i]){
