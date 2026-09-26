@@ -320,3 +320,34 @@ server.get('/proveri_dostupnost' , async(zahtev, odg) => {
         throw error;
     }
 })
+
+//promena stanja
+server.put('/promeni_na_dostupno' , async (zahtev, odg) => {
+    const ime_jela=zahtev.body.ime;
+
+    try{
+        await jela.findOneAndDelete(
+            {ime: ime_jela},
+            {dostupno: true}
+        )
+    }
+
+    catch(error){
+        throw error;
+    }
+})
+
+server.put('/promeni_na_nedostupno' , async (zahtev, odg) => {
+    const ime_jela=zahtev.body.ime;
+
+    try{
+        await jela.findOneAndDelete(
+            {ime: ime_jela},
+            {dostupno: false}
+        )
+    }
+
+    catch(error){
+        throw error;
+    }
+})

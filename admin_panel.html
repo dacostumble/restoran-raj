@@ -220,12 +220,49 @@
             let lista_jela=document.getElementById("lista_jela");
             let zatvori=document.getElementById("zatvori");
 
+            //dugmad D i N:
+            let d, n;
+            let unos_imena;
+
+            d=document.getElementById("dostupno");
+            n=document.getElementById("nedostupno");
+
+            unos_imena=document.getElementById("unos_imena_jela");
+
             izmeni.addEventListener("click" , async ()=>{
                 izmena_jela_rod.style.display="flex";
             })
 
             zatvori.addEventListener("click" , ()=>{
                 izmena_jela_rod.style.display="none";
+            })
+
+            d.addEventListener("click" , event=>{
+                if(unos_imena.value="") window.alert("Potreban je unos imena!");
+
+                fetch("/promeni_na_dostupno" , {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body:JSON.stringify({
+                        ime: unos_imena.value
+                    })
+                })
+            })
+
+            n.addEventListener("click" , event=>{
+                if(unos_imena.value="") window.alert("Potreban je unos imena!");
+
+                fetch("/promeni_na_nedostupno" , {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body:JSON.stringify({
+                        ime: unos_imena.value
+                    })
+                })
             })
 
             setInterval(()=>{
@@ -237,6 +274,7 @@
                     for(let i=0; i<n; i++){
                         //boja paragrafa:
                         let p=document.createElement("p");
+                        p.className="lista_jela_p";
 
                         if(podatak[i].dostupno==true) p.style.color="green";
                             else p.style.color="red";
