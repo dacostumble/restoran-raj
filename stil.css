@@ -535,9 +535,20 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     color: white;
     background-color: black;
+
+    padding: 0.5rem;
+}
+
+#footer_info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
 }
 
 /*******************************************************/
