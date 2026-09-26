@@ -592,6 +592,14 @@
                 .then(podatak=>{
                     console.log(podatak);
 
+                    //sve dostupno pa samo neke zeleno
+
+                    for(let j=0; j<nazivi_jela.length; j++){
+                        dostupnost[j].style.backgroundColor="#277e27ea";
+                        dostupnost[j].textContent="Dostupno";
+                        dodaj_u_korpu[j].disabled=false;
+                    }
+
                     for(let i=0; i<podatak.length; i++){
                         for(let j=0; j<nazivi_jela.length; j++){
                             if(podatak[i].ime==nazivi_jela[j].textContent){
@@ -599,16 +607,6 @@
                                 dostupnost[j].textContent="Nedostupno";
                                 dodaj_u_korpu[j].disabled=true;
                             }
-                        }
-                    }
-
-                    for(let i=0; i<podatak.length; i++){
-                        for(let j=0; j<nazivi_jela.length; j++){
-                            if(podatak[i].ime!=nazivi_jela[j].textContent){
-                                dostupnost[j].style.backgroundColor="#277e27ea";
-                                dostupnost[j].textContent="Dostupno";
-                                dodaj_u_korpu[j].disabled=false;
-                            }  
                         }
                     }
                 })
