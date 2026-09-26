@@ -183,6 +183,7 @@ nav h1{
 @media (max-width: 768px){
     #ime_sekcije{
         text-align: center;
+        font-size: 2rem;
     }
 }
 
@@ -318,12 +319,12 @@ nav h1{
 
 @media (max-width: 768px){
     .dostupnost{
-        margin-right: 5rem;
+        margin-right: 2rem;
 
-        width: 20%;
+        padding: 0.5rem;
         text-align: center;
 
-        font-size: 0.7rem;
+        font-size: 0.5rem;
     }
 }
 
@@ -352,7 +353,7 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok{
-        width: 40%;
+        width: 42%;
         height: 45vh;
     }
 
