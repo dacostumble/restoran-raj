@@ -293,13 +293,29 @@ server.get('/lista_recenzija' , async (zahtev, odg) => {
     odg.send(lista_recenzija);
 })
 
-//ADMIN PANEL MENJA DOSTUPNOST + CENU:
+//ADMIN PANEL MENJA DOSTUPNOST;
 
+//citanje jela iz baze koja ima sva imena sa front enda
 server.get('/admin_lista_jela' , async (zahtev, odg) => {
     try{
         const lista_jela = await jela.find();
         odg.send(lista_jela);
     }
+    catch(error){
+        throw error;
+    }
+})
+
+//front end proverava dostupnost:
+server.get('/proveri_dostupnost' , async(zahtev, odg) => {
+    try{
+        let lista_nedostupnih=await jela.find(
+            {dostupno: false}
+        );
+
+        odg.send(lista_nedostupnih);
+    }
+
     catch(error){
         throw error;
     }

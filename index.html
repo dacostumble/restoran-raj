@@ -436,6 +436,7 @@
             let dodaj_u_korpu=document.getElementsByClassName("dodaj_u_korpu");
             let status_korpe=document.getElementById("status_korpe");
 
+
             let localStorageKorpa=[];
 
             //localStorage.setItem("niz" , 0);
@@ -579,6 +580,29 @@
                 })
                 recenzije_rod.textContent=` `;
             })
+
+            //Proverava dostupnost jela:
+            let dostupnost=document.getElementsByClassName("dostupnost");
+
+            setInterval(async ()=>{
+                await fetch("proveri_dostupnost")
+                .then(odg=>odg.json())
+                .then(podatak=>{
+                    for(let i=0; i<nazivi_jela.length; i++){
+                        for(j=0; j<podatak.length; j++){
+                            if(podatak[j].ime==nazivi_jela[i]){
+                                dostupnost[i].style.backgroundColor="red";
+                                dostupnost[i].textContent="Nedostupno";
+                            }
+
+                            else{
+                                dostupnost[i].style.backgroundColor="green";
+                                dostupnost[i].textContent="Dostupno";
+                            }
+                        }
+                    }
+                })
+            }, 10000) //10 sec
         </script>
     </body>
 </html>

@@ -222,6 +222,23 @@
             zatvori.addEventListener("click" , ()=>{
                 izmena_jela_rod.style.display="none";
             })
+
+            setInterval(async ()=>{
+                await fetch("/admin_lista_jela")
+                .then(odg=>odg.json())
+                .then(podatak=>{
+                    let n=podatak.length;
+
+                    for(let i=0; i<n; i++){
+                        //boja paragrafa:
+                        let p=document.createElement("p");
+                        if(podatak[i].dostupno==true)p.style.color="green";
+                            else p.style.color="red";
+
+                        p.textContent=`${podatak[i].ime} => ${podatak[i].dostupno}`;
+                    }
+                })
+            }, 10000) //10 sec.
         </script>
     </body>
 </html>
