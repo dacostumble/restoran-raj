@@ -26,6 +26,10 @@
                 <br>
 
                 *IDEJA* : PROMENA DOSTUPNOSTI JELA
+
+                <div id="lista_jela">
+                    
+                </div>
             </div>
         </div>
 
@@ -213,6 +217,7 @@
             let izmeni=document.getElementById("izmeni");
             let izmena_jela_rod=document.getElementById("LISTA_JELA_DIV_ROD");
             let izmena_jela_div=document.getElementById("LISTA_JELA_DIV");
+            let lista_jela=document.getElementById("lista_jela");
             let zatvori=document.getElementById("zatvori");
 
             izmeni.addEventListener("click" , async ()=>{
@@ -237,9 +242,11 @@
 
                         p.textContent=`${podatak[i].ime} => ${podatak[i].dostupno}`;
 
-                        izmena_jela_div.append(p);
+                        lista_jela.append(p);
                     }
                 })
+
+                lista_jela.innerHTML=` `;
             }, 1000) //1 sec.
         </script>
     </body>

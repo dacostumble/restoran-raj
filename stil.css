@@ -820,6 +820,13 @@ form{
     border: 1px solid rgba(128, 128, 128, 0.355);
 }
 
+#lista_jela{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
 #dugmad_jela{
     display: flex;
     justify-content: center;
