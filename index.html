@@ -594,22 +594,18 @@
 
                     for(let i=0; i<nazivi_jela.length; i++){
                         for(j=0; j<podatak.length; j++){
-                            if(podatak[j].ime==nazivi_jela[i]){
-                                //console.log("DA");
-
-                                dostupnost[i].style.backgroundColor="green";
-                                dostupnost[i].textContent="Dostupno";
-                                dodaj_u_korpu.disbled=false;
-                                dodaj_u_korpu.style="opacity: 100%";
+                            if(nazivi_jela[i]==podatak[j].ime){
+                                dostupnost[i].style.backgroundColor="red";
+                                dostupnost[i].textContent="Neostupno";
+                                dodaj_u_korpu[i].disbled=true;
+                                dodaj_u_korpu[i].style="opacity: 70%";
                             }
 
                             else{
-                                //console.log("NE");
-
-                                dostupnost[i].style.backgroundColor="red";
-                                dostupnost[i].textContent="Nedostupno";
-                                dodaj_u_korpu.disbled=true;
-                                dodaj_u_korpu.style="opacity: 70%";
+                                dostupnost[i].style.backgroundColor="green";
+                                dostupnost[i].textContent="Dostupno";
+                                dodaj_u_korpu[i].disbled=false;
+                                dodaj_u_korpu[i].style="opacity: 100%";
                             }
                         }
                     }
