@@ -595,21 +595,21 @@
                     for(let i=0; i<nazivi_jela.length; i++){
                         for(j=0; j<podatak.length; j++){
                             if(podatak[j].ime==nazivi_jela[i]){
-                                console.log(NEDOSTUPNO);
-
-                                dostupnost[i].style.backgroundColor="red";
-                                dostupnost[i].textContent="Nedostupno";
-                                dodaj_u_korpu.disbled=true;
-                                dodaj_u_korpu.style.opacity="70%";
-                            }
-
-                            else{
-                                console.log(DOSTUPNO);
+                                console.log("DA");
 
                                 dostupnost[i].style.backgroundColor="green";
                                 dostupnost[i].textContent="Dostupno";
                                 dodaj_u_korpu.disbled=false;
                                 dodaj_u_korpu.style.opacity="100%";
+                            }
+
+                            else{
+                                console.log("NE");
+
+                                dostupnost[i].style.backgroundColor="red";
+                                dostupnost[i].textContent="Nedostupno";
+                                dodaj_u_korpu.disbled=true;
+                                dodaj_u_korpu.style.opacity="70%";
                             }
                         }
                     }

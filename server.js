@@ -309,11 +309,11 @@ server.get('/admin_lista_jela' , async (zahtev, odg) => {
 //front end proverava dostupnost:
 server.get('/proveri_dostupnost' , async(zahtev, odg) => {
     try{
-        let lista_nedostupnih=await jela.find(
-            {dostupno: false}
+        let lista_dostupnih=await jela.find(
+            {dostupno: true}
         );
 
-        odg.send(lista_nedostupnih);
+        odg.send(lista_dostupnih);
     }
 
     catch(error){
