@@ -815,9 +815,22 @@ form{
     overflow-y: scroll;
 }
 
+@media (max-width: 768px){
+    #LISTA_JELA_DIV{
+        width: 75vw;
+        height: 50vh;
+    }
+}
+
 #LISTA_JELA_DIV input{
     padding: 0.5rem;
     border: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+.lista_jela_p{
+    text-align: center;
+    border: 1px solid rgba(128, 128, 128, 0.355);
+    padding: 0.5rem;
 }
 
 #lista_jela{
@@ -941,11 +954,4 @@ form{
     flex-wrap: wrap;
     gap: 1rem;
     padding: 0.5rem;
-}
-
-.lista_jela_p{
-    text-align: center;
-    border: 1px solid rgba(128, 128, 128, 0.355);
-    padding: 0.5rem;
-    width: 90%;
 }

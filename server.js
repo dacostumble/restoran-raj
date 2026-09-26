@@ -326,7 +326,7 @@ server.put('/promeni_na_dostupno' , async (zahtev, odg) => {
     const ime_jela=zahtev.body.ime;
 
     try{
-        await jela.findOneAndDelete(
+        await jela.findOneAndUpdate(
             {ime: ime_jela},
             {dostupno: true}
         )
@@ -343,7 +343,7 @@ server.put('/promeni_na_nedostupno' , async (zahtev, odg) => {
     const ime_jela=zahtev.body.ime;
 
     try{
-        await jela.findOneAndDelete(
+        await jela.findOneAndUpdate(
             {ime: ime_jela},
             {dostupno: false}
         )
