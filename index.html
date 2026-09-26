@@ -597,20 +597,18 @@
                             if(nazivi_jela[i].textContent==podatak[j].ime){
                                 dostupnost[i].style.backgroundColor="red";
                                 dostupnost[i].textContent="Neostupno";
-                                dodaj_u_korpu[i].disbled=true;
-                                dodaj_u_korpu[i].style="opacity: 70%";
+                                dodaj_u_korpu[i].style.display="none";
                             }
 
                             else{
                                 dostupnost[i].style.backgroundColor="green";
                                 dostupnost[i].textContent="Dostupno";
-                                dodaj_u_korpu[i].disbled=false;
-                                dodaj_u_korpu[i].style="opacity: 100%";
+                                dodaj_u_korpu[i].style.display="flex";
                             }
                         }
                     }
                 })
-            }, 2000) //2 sec
+            }, 1000) //1 sec
         </script>
     </body>
 </html>
