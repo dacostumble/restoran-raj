@@ -465,7 +465,7 @@ nav h1{
 
 #unos_recenzije{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
     margin-left: 3rem;
