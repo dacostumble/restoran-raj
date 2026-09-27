@@ -484,7 +484,7 @@ nav h1{
     font-size: 1.2rem;
     padding: 0.5rem;
     border: 1px solid rgba(128, 128, 128, 0.355);
-    background-color: rgba(255, 255, 255, 0.817);
+    background-color: rgb(255, 255, 255);
 }
 
 #recenzije{
@@ -504,9 +504,9 @@ nav h1{
     border-radius: 0.5rem;
     border: 1px solid #8080805b;
 
-    overflow-y: scroll;
+    overflow-y: auto;
 
-    background-color: rgba(255, 255, 255, 0.817);;
+    background-color: rgba(255, 255, 255, 0.477);;
 }
 
 @media (max-width: 768px){
@@ -521,6 +521,8 @@ nav h1{
     background-image: url("OCENA.png");
     padding: 2rem;
     color: white;
+
+    border-radius: 0rem;
 }
 
 #rec_button{

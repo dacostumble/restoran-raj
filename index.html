@@ -395,7 +395,6 @@
         <br><br><br>
 
         <div id="OCENA">
-            <h1 id="ime_sekcije">Kako ste zadovoljni uslugom?</h1><br>
             <div id="unos_recenzije">
                 <input type="text" minlength="0" maxlength="20" placeholder="Vaše ime (opciono)" id="ime_recenzija">
 
@@ -540,7 +539,7 @@
             let recenzije_rod=document.getElementById("recenzije");
 
             pos_rec.addEventListener("click" , event=>{
-                if(dodaj_rec_ime.value="" || dodaj_rec_poruku.value=="") window.alert("Ne možete poslati praznu recenziju!");
+                if(dodaj_rec_ime.value.trim="" || dodaj_rec_poruku.trim=="") window.alert("Ne možete poslati praznu recenziju!");
 
                 else{
                     fetch("/dodaj_recenziju" , {
