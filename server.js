@@ -280,6 +280,8 @@ server.post('/dodaj_recenziju' , async (zahtev, odg) => {
             ime: ime,
             poruka: poruka,
         })
+
+        odg.send(200);
     }
     
     catch(error){

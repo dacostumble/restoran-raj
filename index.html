@@ -539,19 +539,29 @@
 
             let recenzije_rod=document.getElementById("recenzije");
 
-            pos_rec.addEventListener("click" , event=>{
-                fetch("/dodaj_recenziju" , {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        "ime_rec": dodaj_rec_ime.value,
-                        "por_rec": dodaj_rec_poruku.value
-                    })
-                })
+            pos_rec.addEventListener("click" , async event=>{
+                if(dodaj_rec_ime.value.trim()=="" || dodaj_rec_poruku.value.trim()==""){
+                    window.alert("Molimo Vas popunite oba polja, hvala.")
+                }
 
-                window.alert('Vaša recenzija je dodata!');
+                else{
+                    fetch("/dodaj_recenziju" , {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            "ime_rec": dodaj_rec_ime.value,
+                            "por_rec": dodaj_rec_poruku.value
+                        })
+                    })
+                    .then(odg=>odg.json())
+                    .then(podatak=>{
+                        if(podatak==200)
+                            window.alert('Vaša recenzija je dodata!');
+                        else window.alert('Greška, Vaša recenzija nije dodata!');
+                    })
+                }
             })
 
             osvezi_recenziju.addEventListener("click" , ()=>{
