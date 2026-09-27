@@ -493,7 +493,7 @@ nav h1{
     align-items: flex-start;
     flex-direction: column;
 
-    height: 20vh;
+    height: 30vh;
     padding: 1rem;
 
     margin-left: 3rem;
@@ -506,7 +506,7 @@ nav h1{
 
     overflow-y: auto;
 
-    background-color: rgba(255, 255, 255, 0.477);;
+    background-color: rgba(255, 255, 255, 0.54);;
 }
 
 @media (max-width: 768px){
@@ -523,6 +523,7 @@ nav h1{
     color: white;
 
     border-radius: 0rem;
+    padding: 3rem;
 }
 
 #rec_button{
