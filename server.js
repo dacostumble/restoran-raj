@@ -358,21 +358,3 @@ server.put('/promeni_na_nedostupno' , async (zahtev, odg) => {
 
     odg.send(200);
 })
-
-//provera tacnosti korpe:
-server.post('/proveri_korpu' , async(zahtev, odg) => {
-    const korpa_niz=JSON.parse(zahtev.body.korpa);
-    const n=korpa_niz.length;
-
-    const korpa_niz_baza=await jela.find();
-
-    for(let i=0; i<n; i++){
-        for(let j=0; j<korpa_niz_baza.length; j++){
-            if(korpa_niz[i].naziv!=korpa_niz_baza[j].ime || korpa_niz[i].cena!=korpa_niz_baza[j].cena){
-                return odg.send(203);
-            }
-        }
-    }
-
-    odg.send(201);
-})
