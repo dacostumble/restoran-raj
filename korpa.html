@@ -237,17 +237,18 @@
             }
 
             let plati=document.getElementById("plati");
+
             plati.addEventListener("click" , ()=>{
                 //ako je ili licno ili dostava  + korpa ima bar jedan proizvod
 
                 if((vrednost==1 || vrednost==3) && localStorage.getItem("broj")>0){
                     if(vrednost==1){
-                        if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="") window.alert('Molimo Vas popunite sva polja.')
+                        if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="") window.alert('Molimo Vas popunite sva polja potrebna za lično preuzimanje.')
                     }
 
                     else if(vrednost==3){
                         if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="" || adresa.value.trim()=="" || okrug.value.trim()=="")
-                        window.alert('Molimo Vas popunite sva polja.')
+                        window.alert('Molimo Vas popunite sva polja potrebna za dostavu.')
                     }
 
                     //provera
@@ -263,6 +264,8 @@
                         })
                         .then(odg=>odg.json())
                         .then(podatak=>{
+                            console.log(podatak);
+                            
                             if(podatak==201){
                                 posalji();
 

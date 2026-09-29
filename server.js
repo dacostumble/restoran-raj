@@ -370,7 +370,7 @@ server.get('/proveri_korpu' , async (zahtev, odg) => {
         for(let j=0; j<korpa_niz_baza.length; j++){
             if(korpa_niz[i].naziv!=korpa_niz_baza[j].ime && korpa_niz[i].cena!=korpa_niz_baza[j].cena){
                 odg.send(203);
-                return;
+                break;
             }
         }
     }
