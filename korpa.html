@@ -26,7 +26,7 @@
                     <p id="detalji" style="background-color:rgb(245, 188, 83); padding: 0.5rem; font-size: 0.8rem;">
                         Call centar: +3811234567
                     </p>
-                </div>
+                </div> 
 
                 <br>
 
@@ -238,22 +238,36 @@
 
             let plati=document.getElementById("plati");
             plati.addEventListener("click" , ()=>{
-                if(vrednost==1 || vrednost==3){
-                    posalji();
+                //ako je ili licno ili dostava  + korpa ima bar jedan proizvod
 
-                    localStorage.setItem("niz" , 0);
-                    localStorage.setItem("broj" , Number(0));
-                    korpa.innerHTML=` `;
-                    racun_korpa.textContent="0.00$";
+                if((vrednost==1 || vrednost==3) && localStorage.getItem("broj")>0){
+                    if(vrednost==1){
+                        if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="") window.alert('Molimo Vas popunite sva polja.')
+                    }
 
-                    //auto preusmeravanje:
-                    window.location.href="index.html";
-                    window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
+                    else if(vrednost==3){
+                        if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="" || adresa.value.trim()=="" || okrug.value.trim()=="")
+                        window.alert('Molimo Vas popunite sva polja.')
+                    }
 
-                    localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
+                    else{
+                        posalji();
+
+                        localStorage.setItem("niz" , 0);
+                        localStorage.setItem("broj" , Number(0));
+                        korpa.innerHTML=` `;
+                        racun_korpa.textContent="0.00$";
+
+                        //auto preusmeravanje:
+                        window.location.href="index.html";
+                        window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
+
+                        localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
+                    }
                 }
 
                 else if (vrednost==2) window.alert('Molimo Vas potvrdite Vašu adresu.');
+                else if(localStorage.getItem("broj")==0) window.alert('Korpa je trenutno prazna.')
                 else window.alert('Molimo Vas odaberite način preuzimanja.');
             })
         })
