@@ -250,19 +250,38 @@
                         window.alert('Molimo Vas popunite sva polja.')
                     }
 
+                    //provera
                     else{
-                        posalji();
+                        fetch("/proveri_korpu" , {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body:JSON.stringify({
+                                korpa: localStorage.getItem("niz")
+                            })
+                        })
+                        .then(odg=>odg.json())
+                        .then(podatak=>{
+                            if(podatak==201){
+                                posalji();
 
-                        localStorage.setItem("niz" , 0);
-                        localStorage.setItem("broj" , Number(0));
-                        korpa.innerHTML=` `;
-                        racun_korpa.textContent="0.00$";
+                                localStorage.setItem("niz" , 0);
+                                localStorage.setItem("broj" , Number(0));
+                                korpa.innerHTML=` `;
+                                racun_korpa.textContent="0.00$";
 
-                        //auto preusmeravanje:
-                        window.location.href="index.html";
-                        window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
+                                //auto preusmeravanje:
+                                window.location.href="index.html";
+                                window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
 
-                        localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
+                                localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
+                            }   
+
+                            else{
+                                window.alert("Slanje porudžbine nije uspelo usled manipulacije realnim podacima od strane korisnika.")
+                            }
+                        })
                     }
                 }
 
