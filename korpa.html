@@ -262,10 +262,8 @@
                                 korpa: localStorage.getItem("niz")
                             })
                         })
-                        .then(odg=>odg.json())
-                        .then(podatak=>{
-                            console.log
-                            if(podatak==201){
+                        .then(odg=>{
+                            if(odg.status==201){
                                 posalji();
 
                                 localStorage.setItem("niz" , 0);
