@@ -263,7 +263,9 @@
                             })
                         })
                         .then(odg=>{
-                            if(odg.status==201){
+                            console.log(odg.status);
+                            
+                            if(odg.status==201){ //gpt .status
                                 posalji();
 
                                 localStorage.setItem("niz" , 0);
