@@ -360,7 +360,7 @@ server.put('/promeni_na_nedostupno' , async (zahtev, odg) => {
 })
 
 //provera tacnosti korpe:
-server.get('/proveri_korpu' , async (zahtev, odg) => {
+server.post('/proveri_korpu' , async (zahtev, odg) => {
     const korpa_niz=zahtev.body.korpa_niz;
     const n=korpa_niz.length;
 
@@ -368,7 +368,7 @@ server.get('/proveri_korpu' , async (zahtev, odg) => {
 
     for(let i=0; i<n; i++){
         for(let j=0; j<korpa_niz_baza.length; j++){
-            if(korpa_niz[i].naziv!=korpa_niz_baza[j].ime && korpa_niz[i].cena!=korpa_niz_baza[j].cena){
+            if(korpa_niz[i].naziv!=korpa_niz_baza[j].ime || korpa_niz[i].cena!=korpa_niz_baza[j].cena){
                 odg.send(203);
                 break;
             }

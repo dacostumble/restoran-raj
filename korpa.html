@@ -254,7 +254,7 @@
                     //provera
                     else{
                         fetch("/proveri_korpu" , {
-                            method: "GET",
+                            method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
                             },
@@ -264,8 +264,7 @@
                         })
                         .then(odg=>odg.json())
                         .then(podatak=>{
-                            console.log(podatak);
-                            
+                            console.log
                             if(podatak==201){
                                 posalji();
 
