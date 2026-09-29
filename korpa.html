@@ -240,7 +240,8 @@
             plati.addEventListener("click" , ()=>{
                 //ako je ili licno ili dostava  + korpa ima bar jedan proizvod
 
-                if((vrednost==1 || vrednost==3) && localStorage.getItem("broj")>0){
+                if((vrednost==1 || vrednost==3) && localStorage.getItem("broj")>0)
+                {
                     if(vrednost==1){
                         if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="") window.alert('Molimo Vas popunite sva polja.');
                     }
@@ -253,40 +254,24 @@
                     if(
                     (vrednost==1 && (unos_ime.value.trim()!="" && unos_telefon.value.trim()!="")) 
                     || 
-                    (vrednost==3 && (unos_ime.value.trim()=="" && unos_telefon.value.trim()!="" && adresa.value.trim()!="" && okrug.value.trim()!=""))){
+                    (vrednost==3 && (unos_ime.value.trim()=="" && unos_telefon.value.trim()!="" && adresa.value.trim()!="" && okrug.value.trim()!="")))
+                    {
+                        posalji();
 
-                        //provera tacnosti korpe:
+                        localStorage.setItem("niz" , 0);
+                        localStorage.setItem("broj" , Number(0));
+                        korpa.innerHTML=` `;
+                        racun_korpa.textContent="0.00$";
 
-                        fetch("/proveri_korpu" , {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body:JSON.stringify({
-                                korpa: localStorage.getItem("niz")
-                            })
-                        })
-                        .then(odg=>{
-                            if(odg==201)
-                            {
-                                posalji();
+                        //auto preusmeravanje:
+                        window.location.href="index.html";
+                        window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
 
-                                localStorage.setItem("niz" , 0);
-                                localStorage.setItem("broj" , Number(0));
-                                korpa.innerHTML=` `;
-                                racun_korpa.textContent="0.00$";
+                        localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
+                    }
 
-                                //auto preusmeravanje:
-                                window.location.href="index.html";
-                                window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
-
-                                localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
-                            }
-
-                            else{
-                                window.alert("Porudžbina neće biti poslata usled promene imena jela ili cene jela od strane korisnika.")
-                            }
-                        })
+                    else{
+                        window.alert("Porudžbina neće biti poslata usled promene imena jela ili cene jela od strane korisnika.")
                     }
                 }
 
