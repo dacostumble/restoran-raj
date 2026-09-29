@@ -250,7 +250,10 @@
                         window.alert('Molimo Vas popunite sva polja.');
                     }
 
-                    if((vrednost==1 && (unos_ime.value.trim()!="" && unos_telefon.value.trim()!="")) || (vrednost==3 && (unos_ime.value.trim()=="" && unos_telefon.value.trim()=="" && adresa.value.trim()=="" && okrug.value.trim()==""))){
+                    if(
+                    (vrednost==1 && (unos_ime.value.trim()!="" && unos_telefon.value.trim()!="")) 
+                    || 
+                    (vrednost==3 && (unos_ime.value.trim()=="" && unos_telefon.value.trim()!="" && adresa.value.trim()!="" && okrug.value.trim()!=""))){
                         posalji();
 
                         localStorage.setItem("niz" , 0);
