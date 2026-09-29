@@ -259,7 +259,7 @@
                                 "Content-Type": "application/json"
                             },
                             body:JSON.stringify({
-                                korpa: localStorage.getItem("niz")
+                                korpa: JSON.parse(localStorage.getItem("niz"))
                             })
                         })
                         .then(odg=>{
