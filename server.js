@@ -361,7 +361,7 @@ server.put('/promeni_na_nedostupno' , async (zahtev, odg) => {
 
 //provera tacnosti korpe:
 server.post('/proveri_korpu' , async(zahtev, odg) => {
-    const korpa_niz=JSON.parse(zahtev.body.korpa_niz);
+    const korpa_niz=JSON.parse(zahtev.body.korpa);
     const n=korpa_niz.length;
 
     const korpa_niz_baza=await jela.find();
