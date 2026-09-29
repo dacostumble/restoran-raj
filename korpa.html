@@ -237,35 +237,35 @@
             }
 
             let plati=document.getElementById("plati");
-
             plati.addEventListener("click" , ()=>{
                 //ako je ili licno ili dostava  + korpa ima bar jedan proizvod
 
-                if((vrednost==1 || vrednost==3) && localStorage.getItem("broj")>0)
-                {
+                if((vrednost==1 || vrednost==3) && localStorage.getItem("broj")>0){
                     if(vrednost==1){
-                        if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="") window.alert('Molimo Vas popunite sva polja potrebna za lično preuzimanje.')
+                        if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="") window.alert('Molimo Vas popunite sva polja.')
+
+                        return; //gpt
                     }
 
                     else if(vrednost==3){
                         if(unos_ime.value.trim()=="" || unos_telefon.value.trim()=="" || adresa.value.trim()=="" || okrug.value.trim()=="")
-                        window.alert('Molimo Vas popunite sva polja potrebna za dostavu.')
+                        window.alert('Molimo Vas popunite sva polja.')
+
+                        return;
                     }
 
-                    else{
-                        posalji();
+                    posalji();
 
-                        localStorage.setItem("niz" , 0);
-                        localStorage.setItem("broj" , Number(0));
-                        korpa.innerHTML=` `;
-                        racun_korpa.textContent="0.00$";
+                    localStorage.setItem("niz" , 0);
+                    localStorage.setItem("broj" , Number(0));
+                    korpa.innerHTML=` `;
+                    racun_korpa.textContent="0.00$";
 
-                        //auto preusmeravanje:
-                        window.location.href="index.html";
-                        window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
+                    //auto preusmeravanje:
+                    window.location.href="index.html";
+                    window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
 
-                        localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
-                    }   
+                    localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
                 }
 
                 else if (vrednost==2) window.alert('Molimo Vas potvrdite Vašu adresu.');
