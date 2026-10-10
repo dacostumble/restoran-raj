@@ -13,20 +13,24 @@
     </head>
 
     <body>
+        <div id="KORPA_INFO_DIV_ROD" style="display: none;">
+            <div id="KORPA_INFO_DIV">
+                <img src="verified.png" alt="Loading...">
+                <h1>USPEŠNO</h1>
+                <p>
+                    Vaša porudžbina je uspešno pristigla u
+                    palačinkarnicu. Očekujte obaveštenje u
+                    narednom periodu.
+                </p>
+            </div>
+        </div>
+
         <div id="KORPA">
             <div id="PRVI_DEO">
                 <h1 id="ime_sekcije">Vaša korpa</h1>
                 <p id="opis_sekcije">
                     Plaćanje vršiti <b>isključivo pouzećem.</b>
                 </p>
-
-                <div class="detalji_div">
-                    <p id="detalji" style="background-color:rgb(245, 188, 83); padding: 0.5rem; font-size: 0.8rem;">Radno vreme: 07h-23h</p>
-
-                    <p id="detalji" style="background-color:rgb(245, 188, 83); padding: 0.5rem; font-size: 0.8rem;">
-                        Call centar: +3811234567
-                    </p>
-                </div> 
 
                 <br>
 
@@ -57,7 +61,7 @@
                 <div id="dostava">
                     <form>
                         <input type="text" placeholder="Ime i prezime" minlength="0" required id="unos_ime">
-                        <input type="tel" placeholder="Kontakt telefon" minlength="8" maxlength="15" id="unos_tel">
+                        <input type="tel" placeholder="Kontakt (+381 xxx xxx xxx)" minlength="8" maxlength="15" id="unos_tel">
                         <input type="text" placeholder="Adresa (naselje + broj zgrade/kuće +  ime ulice)" minlength="0" required style="display: none;" id="unos_adresa">
                         <input type="text" placeholder="Okrug" list="okrug" required style="display: none;" id="unos_okrug">
                     </form>
@@ -76,7 +80,7 @@
 
                 <br><br>
 
-                <input type="text" id="poruka" minlength="0" maxlength="50" placeholder="Poruka za kuhinju (vezano za porudžbinu)">
+                <input type="text" id="poruka" minlength="0" maxlength="50" placeholder="Poruka (bez zelene salate i kečapa...)">
 
                 <br>
 
@@ -105,15 +109,25 @@
 
             let racun_korpa=document.getElementById("racun_korpa");
             let s=Number(0);
+            let k;
 
             for(let j=0; j<n; j++){
                 if(parsiran_niz[j].kolicina != undefined){
                     let artikl=document.createElement("div");
                     artikl.className="proizvod";
 
-                    artikl.textContent=`${parsiran_niz[j].kolicina}x ${parsiran_niz[j].naziv} ${parsiran_niz[j].cena}`;
+                    let slika=document.createElement("img");
+                    slika.src=parsiran_niz[j].slika;
+                    slika.className="slika_korpa";
 
-                    s+=Number(parseFloat((parsiran_niz[j].cena)));
+                    artikl.textContent=`${parsiran_niz[j].kolicina}x ${parsiran_niz[j].naziv} ${parsiran_niz[j].cena} RSD`;
+
+                    artikl.prepend(slika);
+
+                    k=parsiran_niz[j].kolicina;
+
+                    s+=(k*Number(parseInt(parsiran_niz[j].cena)));
+
                     racun_korpa.textContent=`${s} RSD`;
 
                     korpa.appendChild(artikl);
@@ -187,32 +201,39 @@
             })  
 
             potvrdi_adresu.addEventListener("click" , event=>{
-                if(okrug.value == "Kosovska Mitrovica"){
-                    cena_preuzimanja.textContent="200 RSD";
-                    s+=Number(200);
-                    racun_korpa.textContent=`${s} RSD`;
+                if(okrug.value.trim()==""){
+                    window.alert("Ne možete potvrditi praznu adresu.");
+                    location.reload();
                 }
 
-                else if(okrug.value == "Zvečan"){
-                    cena_preuzimanja.textContent="300 RSD";
-                    s+=Number(300);
-                    racun_korpa.textContent=`${s} RSD`;
-                }
+                else{
+                    if(okrug.value == "Kosovska Mitrovica"){
+                        cena_preuzimanja.textContent="200 RSD";
+                        s+=Number(200);
+                        racun_korpa.textContent=`${s} RSD`;
+                    }
 
-                else if(okrug.value == "Grabovac"){
-                    cena_preuzimanja.textContent="400 RSD";
-                    s+=Number(400);
-                    racun_korpa.textContent=`${s} RSD`;
-                }
+                    else if(okrug.value == "Zvečan"){
+                        cena_preuzimanja.textContent="300 RSD";
+                        s+=Number(300);
+                        racun_korpa.textContent=`${s} RSD`;
+                    }
 
-                else if(okrug.value == "Žitkovac / Žerovnica"){
-                    cena_preuzimanja.textContent="450 RSD";
-                    s+=Number(450);
-                    racun_korpa.textContent=`${s} RSD`;
-                }
+                    else if(okrug.value == "Grabovac"){
+                        cena_preuzimanja.textContent="400 RSD";
+                        s+=Number(400);
+                        racun_korpa.textContent=`${s} RSD`;
+                    }
 
-                vrednost=3;
-                event.target.style.display="none";
+                    else if(okrug.value == "Žitkovac / Žerovnica"){
+                        cena_preuzimanja.textContent="450 RSD";
+                        s+=Number(450);
+                        racun_korpa.textContent=`${s} RSD`;
+                    }
+
+                    vrednost=3;
+                    event.target.style.display="none";
+                }
             })
 
             //narucivanje konacno:
@@ -236,7 +257,59 @@
                 })
             }
 
+            //iskacuci prozor:
+            let div=document.getElementById("KORPA_INFO_DIV");
+            let div_rod=document.getElementById("KORPA_INFO_DIV_ROD");
+
             let plati=document.getElementById("plati");
+
+            div.addEventListener("click" , event=>{
+                div_rod.style.display="none";
+                window.location.href="index.html";
+            });
+
+            function proveri_cene(){
+                fetch("/proveri_cene" , {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "korpa": localStorage.getItem("niz"),
+                        "duzina": Number(localStorage.getItem("broj"))
+                    })
+                }) 
+                .then(odg=>odg.text()) //gpt .text
+                .then(podatak=>{
+                    if(podatak==300){
+                        //console.log(11111111);
+                        posalji();
+                        localStorage.setItem("niz" , 0);
+                        localStorage.setItem("broj" , Number(0));
+                        korpa.innerHTML=` `;
+                        racun_korpa.textContent="0.00$";
+
+                        //auto preusmeravanje:
+                        div_rod.style.display="flex";
+
+                        localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
+                    }
+                        
+                    else{
+                        //else console.log(222222222);
+
+                        window.alert("Podaci su manipulisani, porudzbina je odbijena!");
+
+                        localStorage.setItem("niz" , 0);
+                        localStorage.setItem("broj" , Number(0));
+                        korpa.innerHTML=` `;
+                        racun_korpa.textContent="0.00$";
+
+                        window.location.href="index.html";
+                    }
+                })
+            }
+
             plati.addEventListener("click" , ()=>{
                 //ako je ili licno ili dostava  + korpa ima bar jedan proizvod
 
@@ -255,23 +328,27 @@
                     || 
                     (vrednost==3 && (unos_ime.value.trim()=="" && unos_telefon.value.trim()!="" && adresa.value.trim()!="" && okrug.value.trim()!="")))
                     {
+                        //broj telefona + da li su cene tacne
+                        if(unos_telefon.value.slice(0,4)==+381){
+                            proveri_cene();
+                            /*
+                            if(proveri_cene()==1){ 
+                                
+                            }
+                            
+                            else if(proveri_cene()==0){
+                                
+                            }*/
+                        }
 
-                        posalji();
-                        localStorage.setItem("niz" , 0);
-                        localStorage.setItem("broj" , Number(0));
-                        korpa.innerHTML=` `;
-                        racun_korpa.textContent="0.00$";
-
-                        //auto preusmeravanje:
-                        window.location.href="index.html";
-                        window.alert("Ostanite na ovoj stranici kako bi Vam stiglo obaveštenje o stanju porudžbine. Hvala!");
-
-                        localStorage.setItem("kontakt_iz_korpe" , unos_telefon.value);
+                        else{
+                            window.alert("Broj telefona mora početi pozivnim brojem +381.");
+                        }                
                     }
                 }
 
                 else if (vrednost==2) window.alert('Molimo Vas potvrdite Vašu adresu.');
-                else if(localStorage.getItem("broj")==0) window.alert('Korpa je trenutno prazna.')
+                else if(localStorage.getItem("broj")==0 || localStorage.getItem("broj")==null) window.alert('Korpa je trenutno prazna.')
                 else window.alert('Molimo Vas odaberite način preuzimanja.');
             })
         })

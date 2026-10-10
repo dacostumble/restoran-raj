@@ -91,6 +91,9 @@ server.get('/kraj.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "kr
 server.get('/stani.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname , "stani.png")));
 server.get('/kreni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "kreni.png")));
 server.get('/izmeni.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "izmeni.png")));
+server.get('/upozorenje.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "upozorenje.png")));
+server.get('/kasa_admin.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "kasa_admin.png")));
+server.get('/verified.png' , (zahtev, odg) => odg.sendFile(path.join(__dirname, "verified.png")));
 
 //DEFINISANJE OSTALIH RUTI:
 
@@ -120,6 +123,28 @@ server.get('/licno.png' , (zahtev, odg) => {
 })
 server.get('/OCENA.png' , (zahtev, odg) => {
     odg.sendFile(path.join(__dirname, "OCENA.png"));
+})
+
+//PROVERA TACNOSTI KORPE
+//ako je jednako ime -> proveri cenu -> br++
+//ostalo -> br=0;
+
+server.post('/proveri_cene' , async(zahtev, odg) => {
+    const korpa=JSON.parse(zahtev.body.korpa);
+    const jela_baza=await jela.find();
+    const duzina=Number(zahtev.body.duzina);
+    let br=0;
+
+    for(let i=0; i<korpa.length; i++){
+        for(let j=0; j<jela_baza.length; j++){
+            if(korpa[i].naziv==jela_baza[j].ime){
+                if(Number(korpa[i].cena)==Number(jela_baza[j].cena)) br++;
+            }
+        }
+    }
+
+    if(br==duzina) odg.send(300);
+        else odg.send(400);
 })
 
 //NARUCIVANJE SA FRONT-END-a

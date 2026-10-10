@@ -26,7 +26,298 @@
                 <br>
 
                 <div id="lista_jela">
+                    
+                </div>
+            </div>
+        </div>
 
+        <div id="KASA_DIV_ROD" style="display: none;">
+            <div id="KASA_DIV">
+                <div id="naslov_kasa">
+                    <h1>RUČNA KASA</h1>
+                    <button id="zatvori_kasa" style="background-color: black;color: white;">X</button>
+                </div>   
+
+                <div id="info_kasa">
+                    <input type="number" placeholder="Kontakt telefon" id="telefon">
+
+                    <input type="text" placeholder="Poseban zahtev" id="zahtev">
+                </div>
+
+                <br>
+                
+                <div id="predaj_div">
+                    <p id="suma">0.00 RSD</p>
+                    <button id="predaj">Zabeleži</button>
+                    <button id="obrisi_kasa">Obriši</button>
+                </div>
+
+                <br>
+
+
+                <div id="kasa" style="border: 1px solid rgba(128, 128, 128, 0.355); width: 50%; padding: 1rem; display: flex;
+                justify-content: center;
+                align-items: center; flex-direction: column;">
+
+                </div><br>
+
+                <br>
+
+                <div id="proizvodi">
+                    <div class="obrok">            
+                        <img src="Cezar.png" alt="Loading...">
+                        <div class="ime_cena">
+                            <h3 class="naziv_jela">Cezar salata</h3>
+                            <p class="cena_jela">560 RSD</p>
+                        </div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Grcka.png" alt="Loading...">
+                        <div class="ime_cena">
+                            <h3 class="naziv_jela">Grčka salata</h3>
+                            <p class="cena_jela">460 RSD</p>
+                        </div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Tuna.png" alt="Loading...">
+                        <div class="ime_cena">
+                            <h3 class="naziv_jela">Tuna salata</h3>
+                            <p class="cena_jela">500 RSD</p>
+                        </div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Sopska.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Šopska salata</h3>
+                        <p class="cena_jela">350 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Piletina.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Piletina i pirinač</h3>
+                        <p class="cena_jela">650 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Losos.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Losos sa krompirom</h3>
+                        <p class="cena_jela">940 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Testenina.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Int. testenina</h3>
+                        <p class="cena_jela">700 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Rizoto.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Rižoto sa piletinom</h3>
+                        <p class="cena_jela">650 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Omlet.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Omlet sa povrćem</h3>
+                        <p class="cena_jela">320 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Ovsene.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Pahuljice i grčki jog.</h3>
+                        <p class="cena_jela">300 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Tost.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Int. tost</h3>
+                        <p class="cena_jela">450 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Palacinke.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Proteinske palačinke</h3>
+                        <p class="cena_jela">380 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Kasa.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Ovsena kaša</h3>
+                        <p class="cena_jela">350 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Med i orasi.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Jogurt sa medom i orasima</h3>
+                        <p class="cena_jela">300 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Chia puding.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Chia puding sa bananom</h3>
+                        <p class="cena_jela">350 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Mafin.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Ovseni kolač sa bananom</h3>
+                        <p class="cena_jela">330 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="Energetske kuglice.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Energetske kuglice</h3>
+                        <p class="cena_jela">250 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="banana.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Banana smoothie</h3>
+                        <p class="cena_jela">300 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="jagoda.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Smoothie od jagode</h3>
+                        <p class="cena_jela">350 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="zeleni.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Zeleni smoothie</h3>
+                        <p class="cena_jela">400 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <div class="obrok">
+                        <img src="limunada.png" alt="Loading...">
+                        <div class="ime_cena">
+                        <h3 class="naziv_jela">Limunada</h3>
+                        <p class="cena_jela">190 RSD</p></div>
+
+                        <div class="kolicina">
+                            <input type="number" min="1" max="10" class="kol" placeholder="1"></input>
+                            <button class="dodaj_u_korpu">Dodaj</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,6 +335,7 @@
                 <button id="zaustavi"><img src="stani.png" alt="Loading...">Kraj smene</button>
                 <button id="pokreni"><img src="kreni.png" alt="Loading...">Ponovo pokreni</button>
                 <button id="izmeni"><img src="izmeni.png" alt="Loading...">Izmeni</button>
+                <button id="kasa_admin"><img src="kasa_admin.png" alt="Loading...">Kasa</button>
         
                 <input type="number" placeholder="Šifra porudžbine" min="0" id="sifra">
                 <button id="gotova_porudzbina_dugme">Gotovo</button>
@@ -106,6 +398,8 @@
                             let korpa_admin=document.createElement("div");
                             korpa_admin.className="korpa_admin";
 
+                            //paragraf sa info. + korpa
+
                             for(let x=0; x<korpa.length; x++){
                                 let p2=document.createElement("p");
                                 p2.textContent=`${korpa[x].kolicina}x
@@ -114,13 +408,14 @@
                                 korpa_admin.append(p2);
                             }
 
+                            korpa_admin.style="padding-bottom: 1rem; border-bottom: 1.5px solid rgba(128, 128, 128, 0.219); border-bottom-left-radius: 0rem; border-bottom-right-radius: 0rem;"
+
                             admin_lista.append(korpa_admin);
                             
                             //provera stanja:
                             if(podatak[j].gotovo_stanje == true){
-                                p.style="opacity: 30%";
-                                korpa_admin.style.color="green";
-                                korpa_admin.style.padding="0rem";
+                                p.style.display="none";
+                                korpa_admin.style.display="none";
                             }
 
                             s=s+Number(podatak[j].racun);
@@ -294,7 +589,7 @@
                         if(podatak[i].dostupno==true) p.style.color="green";
                             else p.style.color="red";
 
-                        p.textContent=`${podatak[i].ime} => ${podatak[i].dostupno}`;
+                        p.textContent=`${podatak[i].ime} => ${podatak[i].cena}`;
 
                         lista_jela.append(p);
                     }
@@ -302,6 +597,97 @@
 
                 lista_jela.innerHTML=` `;
             }, 5000) //5 sec.
+
+            //kasa:
+
+            let kasa_dugme=document.getElementById("kasa_admin");
+            let kasa_div_rod=document.getElementById("KASA_DIV_ROD");
+            let kasa_div=document.getElementById("KASA_DIV");
+            let zatvori_kasu=document.getElementById("zatvori_kasa");
+
+            kasa_dugme.addEventListener("click" , async ()=>{
+                kasa_div_rod.style.display="flex";
+            })
+
+            zatvori_kasu.addEventListener("click" , ()=>{
+                kasa_div_rod.style.display="none";
+            })
+
+            let nazivi_jela=document.getElementsByClassName("naziv_jela");
+            let cena_jela=document.getElementsByClassName("cena_jela");
+            let kolicina=document.getElementsByClassName("kol");
+            let dodaj_u_korpu=document.getElementsByClassName("dodaj_u_korpu");
+            let tel=document.getElementById("telefon");
+
+            let prikaz=document.getElementById("kasa");
+            let zahtev=document.getElementById("zahtev");
+            let suma, predaj, obrisi_kasa;
+
+            suma=document.getElementById("suma");
+            let suma_kasa=0;
+            predaj=document.getElementById("predaj");
+            obrisi_kasa=document.getElementById("obrisi_kasa");
+
+            let niz=[];
+
+            obrisi_kasa.addEventListener("click" , event=>{
+                niz=[];
+                location.reload();
+            })
+
+            for(let i=0; i<nazivi_jela.length; i++){
+                dodaj_u_korpu[i].addEventListener("click" , ()=>{
+                    if(kolicina[i].value==0){
+                        kolicina[i].value=1;
+                    }
+
+                    let p=document.createElement("p");
+                    p.textContent=`${kolicina[i].value}x ${nazivi_jela[i].textContent} ${cena_jela[i].textContent}`;
+                    prikaz.append(p);
+
+                    niz.push({
+                        "naziv": nazivi_jela[i].textContent,
+                        "cena": cena_jela[i].textContent,
+                        "kolicina": kolicina[i].value
+                    });
+
+                    let k=kolicina[i].value;
+
+                    suma_kasa+=k*Number(parseInt(cena_jela[i].textContent));
+                    suma.textContent=`${suma_kasa} RSD`;
+                })
+            }
+
+            function posalji() {
+                fetch("/poruci" , {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "ime": "ADMIN KASA",
+                        "kontakt": tel.value,
+                        "adresa": "ADMIN KASA",
+                        "poruka": zahtev.value,
+                        "korpa": niz,
+                        "racun": Number(suma_kasa),
+                        "gotovo": false
+                    })
+                })
+            }
+
+            predaj.addEventListener("click" , event=> {
+                if(tel.value.trim()==""){
+                    window.alert("Broj telefona je obavezan.");
+                }
+
+                else{
+                    posalji();
+                    window.alert("Porudžbina je dodata!");
+                    kasa_div_rod.style.display="none";
+                }
+                
+            });
         </script>
     </body>
 </html>

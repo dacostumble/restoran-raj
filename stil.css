@@ -7,6 +7,28 @@ body{
     font-style: normal;
 }
 
+iframe{
+    width: 100%;
+    border-radius: 0.5rem;
+
+    margin-right: 3rem;
+    margin-left: 3rem;
+}
+
+@media (max-width: 768px){
+    iframe{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+#iframe_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 /*narandzasti p-ovi*/
 .detalji_div{
     display: flex;
@@ -15,16 +37,27 @@ body{
     flex-direction: row;
     gap: 1rem;
     margin-left: 3rem;
-    margin-right: 3rem;
+    margin-right: 6rem;
+    
+    color: rgb(237, 5, 5);
+}
+
+.detalji_div img{
+    width: 3rem;
 }
 
 @media (max-width: 768px){
     .detalji_div{
         flex-direction: row;
+        margin-right: 3rem;
     }
 
     .detalji_div p{
         width: 100%;
+    }
+
+    .detalji_div img{
+        display: none;
     }
 }
 
@@ -245,7 +278,7 @@ nav h1{
     gap: 1rem;
 
     padding: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
     background-color: #3d6eaf;
     color: white;
 
@@ -338,10 +371,9 @@ nav h1{
     width: 30%;
 
     gap: 0.5rem;
-    height: 47vh;
+    height: 40vh;
 
-    border: 1px solid rgba(128, 128, 128, 0.079);
-    box-shadow: 8px 8px 8px rgba(141, 141, 141, 0.251);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
 
     z-index: inherit;
 }
@@ -354,7 +386,7 @@ nav h1{
 @media (max-width: 768px){
     .obrok{
         width: 42%;
-        height: 45vh;
+        height: 28vh;
     }
 
     .obrok button{
@@ -391,8 +423,17 @@ nav h1{
     font-size: 1rem;
 }
 
+.obrok button:hover{
+    cursor: grab;
+}
+
+.obrok button:active{
+    cursor: grabbing;
+}
+
 .obrok h3{
     text-align: center;
+    font-size: 1.2rem;
 }
 
 @media (max-width: 768px){
@@ -443,8 +484,8 @@ nav h1{
     border: none;
     padding: 0.5rem;
 
-    border: 1px solid rgba(128, 128, 128, 0.355);
-    width: 5rem;
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
+    width: 2rem;
 }
 
 @media (max-width: 768px){
@@ -456,8 +497,7 @@ nav h1{
         border: none;
         padding: 0.3rem;
 
-        border: 1px solid rgba(128, 128, 128, 0.355);
-        width: 3rem;
+        width: 2rem;
 
         text-align: center;
     }
@@ -483,7 +523,7 @@ nav h1{
 #unos_recenzije input, button{
     font-size: 1.2rem;
     padding: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
     background-color: rgb(255, 255, 255);
 }
 
@@ -563,6 +603,74 @@ footer{
 /*******************************************************/
 /*******************************************************/
 /*******************************************************/
+
+@keyframes kartica{
+    0%{
+        transform: scale(0.8);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+#KORPA_INFO_DIV_ROD{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    z-index: 2;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.534);
+}
+
+#KORPA_INFO_DIV{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+
+    gap: 0.5rem;
+
+    position: relative;
+
+    background-color: #f8f8f8;
+    padding: 2rem;
+
+    width: 35vw;
+    height: 30vh;
+
+    box-shadow: 8px 8px 8px rgba(128, 128, 128, 0.197);
+
+    text-align: center;
+
+    animation-name: kartica;
+    animation-duration: 0.5s;
+}
+
+#KORPA_INFO_DIV img{
+    width: 5rem;
+}
+
+@media (max-width: 768px){
+    #KORPA_INFO_DIV_ROD{
+        height: 200vh;
+    }
+
+    #KORPA_INFO_DIV{
+        width: 50vw;
+        padding: 3rem;
+    }
+
+    #KORPA_INFO_DIV img{
+        width: 3rem;
+    }
+}
 
 #KORPA{
     display: flex;
@@ -674,19 +782,27 @@ footer{
 
 .proizvod{ 
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: row;
 
     gap: 1rem;
-
-    background-color: #f8f8f8;
-
     padding: 1rem;
 
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
 
     width: 35vw;
+
+    border-radius: 0.5rem;
+
+    height: 5dvh;
+}
+
+/*formatiranje slike iz korpe:*/
+
+.slika_korpa{
+    border-radius: 0.5rem;
+    width: 10rem;
 }
 
 @media (max-width: 768px){
@@ -699,7 +815,7 @@ footer{
 #poruka{
     padding: 0.5rem;
     border: none;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
 
     width: 40%;
     margin-left: 3rem;
@@ -708,7 +824,6 @@ footer{
 .proizvod img{
     width: 4rem;
 }
-
 
 #odabir{
     display: flex;
@@ -722,7 +837,7 @@ footer{
 #odabir button{
     font-size: 1.2rem;
     padding: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
     background-color: #cdcdcd5b;
 }
 
@@ -743,13 +858,13 @@ form{
 #dostava input{
     font-size: 1.2rem;
     padding: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
 }
 
 #potvrda_dostava{
     margin-left: 3rem;
     padding: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
     background-color: #cdcdcd5b;
 }
 
@@ -776,7 +891,7 @@ form{
 
     font-size: 1.2rem;
     padding: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
 
     background-color: #3d6eaf;
     color: white;
@@ -786,7 +901,7 @@ form{
 /*******************************************************/
 /*******************************************************/
 
-#LISTA_JELA_DIV_ROD{
+#LISTA_JELA_DIV_ROD, #KASA_DIV_ROD{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -796,9 +911,11 @@ form{
 
     width: 100vw;
     height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.534);
 }
 
-#LISTA_JELA_DIV{
+#LISTA_JELA_DIV, #KASA_DIV{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -816,10 +933,19 @@ form{
     height: 60vh;
 
     overflow-y: scroll;
+
+    box-shadow: 8px 8px 8px rgba(128, 128, 128, 0.197);
+
+    animation-name: kartica;
+    animation-duration: 0.5s;
+}
+
+#KASA_DIV{
+    width: 80vw;
 }
 
 @media (max-width: 768px){
-    #LISTA_JELA_DIV{
+    #LISTA_JELA_DIV, #KASA_DIV{
         width: 75vw;
         height: 50vh;
     }
@@ -827,13 +953,13 @@ form{
 
 #LISTA_JELA_DIV input{
     padding: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
 }
 
 .lista_jela_p{
     text-align: center;
-    border: 1px solid rgba(128, 128, 128, 0.355);
-    padding: 0.5rem;
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
+    padding: 1rem;
 
     width: 30vw;
 }
@@ -857,6 +983,88 @@ form{
     align-items: center;
     flex-direction: row;
     gap: 1rem;
+}
+
+/*kasa*/
+
+#proizvodi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+#proizvodi div{
+    width: 25%;
+    height: 40vh;
+}
+
+@media (max-width: 768px){
+    #proizvodi div{
+        width: 80%;
+        height: 40vh;
+    }
+}
+
+#proizvodi div h3{
+    font-size: 1rem;
+    text-align: left;
+}
+
+#proizvodi div img{
+    height: 15vh;
+}
+
+#proizvodi div p{
+    font-size: 1rem;
+}
+
+#proizvodi div button{
+    font-size: 1rem;
+}
+
+#proizvodi div .ime_cena{
+    gap: 3rem;
+}
+
+#predaj_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+#predaj_div button{
+    background-color: #5f83b1;
+    color: white;
+}
+
+#naslov_kasa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 1rem;
+}
+
+#info_kasa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#info_kasa input{
+    padding: 0.5rem;
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
 }
 
 #ADMIN_DIV{
@@ -894,7 +1102,7 @@ form{
 
 #dugmad #sifra, #kontakt_za_brisanje, #gotova_porudzbina_dugme, #obrisi_po_broju{
     padding: 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.355);
+    border: 1.5px solid rgba(128, 128, 128, 0.219);
 
     height: 1.92rem;
 }
@@ -940,7 +1148,7 @@ form{
     padding: 0rem;
 }
 
-#pokreni, #izmeni{
+#pokreni, #izmeni, #kasa_admin{
     background-color: #3d6eaf;
     color: white;
     padding: 0rem;
@@ -964,5 +1172,4 @@ form{
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 1rem;
-    padding: 0.5rem;
 }
