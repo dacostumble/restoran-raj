@@ -357,7 +357,7 @@ nav h1{
         padding: 0.5rem;
         text-align: center;
 
-        font-size: 0.5rem;
+        font-size: 0.3rem;
     }
 }
 
@@ -386,7 +386,7 @@ nav h1{
 @media (max-width: 768px){
     .obrok{
         width: 42%;
-        height: 28vh;
+        height: 32vh;
     }
 
     .obrok button{
@@ -468,7 +468,7 @@ nav h1{
 
 @media (max-width: 768px){
     .obrok img{
-        height: 40%;
+        height: 45%;
     }
 }
 
